@@ -12,12 +12,6 @@ public class EnemyShoot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void Shoot(Vector3 targetPosition){

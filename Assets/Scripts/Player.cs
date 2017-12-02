@@ -31,7 +31,7 @@ public class Player : LivingEntity {
 		if (playerInfo.inputEnabled){
 			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
-		} else if(playerInfo.onDash) {
+		} else if(playerInfo.onDash && (Mathf.Abs(input.x) + Mathf.Abs(input.y) != 0)) {
 			Dash();
 		}
 

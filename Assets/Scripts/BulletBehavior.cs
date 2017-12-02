@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour {
-
+	
 	public float speed;
 	Rigidbody2D rb;
 
@@ -18,10 +18,9 @@ public class BulletBehavior : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision){
-		if (collision.collider.tag == "Wall"){
-			Destroy(gameObject);
-		} else if (collision.collider.tag == "Player" || collision.collider.tag == "Enemy"){
+		if (collision.collider.tag == "Player"){
 			collision.collider.GetComponent<LivingEntity>().TakeDamage(1);
 		}
+		Destroy(gameObject);
 	}
 }
