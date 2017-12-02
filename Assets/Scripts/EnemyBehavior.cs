@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
 
-	Transform ballTransform;
+	Rigidbody2D ball;
 
 	void Start(){
-		ballTransform = GameObject.FindGameObjectWithTag("ball").transform;
+		ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody2D>();
 	}
 
 	public void NextMovement(ref Vector2 input){
+
+		// Defensive Behavior first
+		//Raycast hit = Physics2D.Raycast(ball.position, )
 
 	}
 }
