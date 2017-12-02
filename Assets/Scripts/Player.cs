@@ -66,6 +66,8 @@ public class Player : LivingEntity {
 			playerInfo.attack = false;
 			playerInfo.moveSpeed /= dashSpeedMultiplier;
 			playerInfo.accelerationTime = accelerationTime;
+			playerInfo.velocity.x = 0;
+			playerInfo.velocity.y = 0;
 		}
 	}
 
@@ -75,6 +77,14 @@ public class Player : LivingEntity {
 		} else if (other.collider.tag == "Wall" && playerInfo.onDash){
 			transform.GetComponent<LivingEntity>().TakeDamage(99999);
 		}
+	}
+
+	void OnCollisionStay2D(Collision2D other) {
+		if (other.collider.tag == "Enemy" && playerInfo.attack){
+			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
+		} //else if (other.collider.tag == "Wall" && playerInfo.onDash){
+			//transform.GetComponent<LivingEntity>().TakeDamage(99999);
+		//}
 	}
 
 	struct PlayerInfo {
