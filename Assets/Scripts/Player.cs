@@ -55,7 +55,6 @@ public class Player : MonoBehaviour {
 			playerInfo.onDash = true;
 			playerInfo.inputEnabled = false;
 			playerInfo.attack = true;
-			collider.isTrigger = true;
 			playerInfo.moveSpeed *= dashSpeedMultiplier;
 			dashTimeRemaining = 0f;
 			playerInfo.accelerationTime = 0f;
@@ -65,16 +64,14 @@ public class Player : MonoBehaviour {
 			playerInfo.onDash = false;
 			playerInfo.inputEnabled = true;
 			playerInfo.attack = false;
-			collider.isTrigger = false;
 			playerInfo.moveSpeed /= dashSpeedMultiplier;
 			playerInfo.accelerationTime = accelerationTime;
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log(other.tag);
-		if (other.tag == "Enemy" && playerInfo.attack){
-			other.GetComponent<LivingEntity>().TakeDamage(5);
+	void OnCollisionEnter2D(Collision2D other) {
+		if (other.collider.tag == "Enemy" && playerInfo.attack){
+			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
 		}
 	}
 
