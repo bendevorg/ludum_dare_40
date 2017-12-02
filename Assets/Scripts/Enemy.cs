@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
+[RequireComponent(typeof(EnemyBehavior))]
 public class Enemy : LivingEntity {
 
 	Controller2D controller;
+	EnemyBehavior enemyBehavior;
 	EnemyInfo enemyInfo;
-	EnemyShoot enemyShoot;
 
 	public float moveSpeed = 20f;
 	float accelerationTime = .1f;
@@ -20,7 +21,7 @@ public class Enemy : LivingEntity {
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
-		enemyShoot = GetComponent<EnemyShoot>();
+		enemyBehavior = GetComponent<EnemyBehavior>();
 		enemyInfo = new EnemyInfo(moveSpeed, accelerationTime, Vector3.zero);
 		players = new List<Transform>();
 		GameObject[] playersGameObject = GameObject.FindGameObjectsWithTag("Player");
@@ -31,9 +32,7 @@ public class Enemy : LivingEntity {
 	
 	// Update is called once per frame
 	void Update () {
-		input = new Vector2(players[0].position.x - transform.position.x, players[0].position.y - transform.position.y);
-		input = input.normalized;
-		enemyShoot.Shoot(players[0].position);
+		enemyBehavior.NextMovement(ref input);
 	}
 	
 	void FixedUpdate(){
