@@ -14,6 +14,11 @@ public class Player : MonoBehaviour {
 	float accelerationTime = .1f;
 	public float moveSpeed = 2f;
 
+	public float dashSpeedMultiplier = 4f;
+	public float dashTime = .25f;
+	bool onDash = false;
+	float dashTimeRemaining;
+
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();	
@@ -21,7 +26,23 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+		if (!onDash){
+			input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+			input = input.normalized;
+		} else if(dashTimeRemaining >= dashTime) {
+			onDash = false;
+			moveSpeed /= dashSpeedMultiplier;
+		} else {
+			dashTimeRemaining += Time.deltaTime;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space)){
+			if (!onDash){
+				onDash = true;
+				moveSpeed *= dashSpeedMultiplier;
+				dashTimeRemaining = 0f;
+			}
+		}
 	}
 
 	void FixedUpdate(){
@@ -31,4 +52,5 @@ public class Player : MonoBehaviour {
 		velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
 		controller.Move(velocity * Time.deltaTime);
 	}
+
 }
