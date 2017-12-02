@@ -47,7 +47,7 @@ public class Player : LivingEntity {
 		float targetVelocityY = input.y * playerInfo.moveSpeed;
 		playerInfo.velocity.x = Mathf.SmoothDamp(playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, playerInfo.accelerationTime);
 		playerInfo.velocity.y = Mathf.SmoothDamp(playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, playerInfo.accelerationTime);
-		controller.Move(playerInfo.velocity * Time.deltaTime);
+		controller.Move(playerInfo.velocity * Time.deltaTime, input);
 	}
 
 	void Dash(){

@@ -7,13 +7,15 @@ using UnityEngine;
 public class Controller2D : MonoBehaviour {
 
 	Rigidbody2D rb;
+	public Vector2 playerInput;
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	public void Move(Vector2 moveAmount){
+	public void Move(Vector2 moveAmount, Vector2 input){
 		rb.MovePosition(rb.position + moveAmount);
+		playerInput = input;
 	}
 	
 }

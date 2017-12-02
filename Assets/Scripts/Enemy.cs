@@ -41,7 +41,7 @@ public class Enemy : LivingEntity {
 		float targetVelocityY = input.y * enemyInfo.moveSpeed;
 		enemyInfo.velocity.x = Mathf.SmoothDamp(enemyInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, enemyInfo.accelerationTime);
 		enemyInfo.velocity.y = Mathf.SmoothDamp(enemyInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, enemyInfo.accelerationTime);
-		controller.Move(enemyInfo.velocity);
+		controller.Move(enemyInfo.velocity, input);
 	}
 
 	struct EnemyInfo {
