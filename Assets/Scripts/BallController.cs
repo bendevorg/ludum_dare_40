@@ -5,9 +5,9 @@ using UnityEngine;
 public class BallController : MonoBehaviour {
 
 	Rigidbody2D rb;
-	public float ballInitialSpeed = 100f;
-	public float ballSpeedIncrementOnBounce = 100f;
-	public float ballMinSpeed = 3f;
+	[Range(0, 1)]
+	public float ballSpeedIncrementOnBounce = 1f;
+	public float ballMinSpeed = 1.5f;
 	public float ballMaxSpeed = 25f;
 
 	float directionX;
@@ -16,21 +16,28 @@ public class BallController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		Vector2 initialForce = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
-		initialForce = initialForce.normalized;
-		directionX = Mathf.Sign(initialForce.x);
-		directionY = Mathf.Sign(initialForce.y);
-		rb.AddForce(initialForce * ballSpeed);
+		Vector2 initialVelocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+		initialVelocity = initialVelocity.normalized;
+		directionX = Mathf.Sign(initialVelocity.x);
+		directionY = Mathf.Sign(initialVelocity.y);
+		initialVelocity.x = initialVelocity.x>initialVelocity.y?ballMinSpeed * directionX:(initialVelocity.x/initialVelocity.y) * directionX;
+		initialVelocity.y = initialVelocity.y>initialVelocity.x?ballMinSpeed * directionY:(initialVelocity.y/initialVelocity.x) * directionX;
+		rb.velocity = initialVelocity;
+		Debug.Log(rb.velocity);
+	}
+
+	Vector2 CalculateBallVelocity(float speedIncrementPercentage){
+		Vector2 newVelocity = rb.velocity * (1 + speedIncrementPercentage);
+		directionX = Mathf.Sign(newVelocity.x);
+		directionY = Mathf.Sign(newVelocity.y);
+		newVelocity = new Vector2(Mathf.Clamp(Mathf.Abs(newVelocity.x), ballMinSpeed, ballMaxSpeed) * directionX, 
+			Mathf.Clamp(Mathf.Abs(newVelocity.y), ballMinSpeed, ballMaxSpeed) * directionY);
+		return newVelocity;
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
 		if (other.collider.tag == "Wall"){
-			Vector2 newVelocity = rb.velocity * ballSpeedIncrementOnBounce;
-			directionX = Mathf.Sign(newVelocity.x);
-			directionY = Mathf.Sign(newVelocity.y);
-			newVelocity = new Vector2(Mathf.Clamp(Mathf.Abs(newVelocity.x), ballMinSpeed, ballMaxSpeed) * directionX, 
-				Mathf.Clamp(Mathf.Abs(newVelocity.y), ballMinSpeed, ballMaxSpeed) * directionY);
-			rb.velocity = newVelocity;
+			rb.velocity = CalculateBallVelocity(ballSpeedIncrementOnBounce);
 		} else if (other.collider.tag == "Player" || other.collider.tag == "Enemy"){
 			other.collider.GetComponent<LivingEntity>().TakeDamage(999);
 		}
