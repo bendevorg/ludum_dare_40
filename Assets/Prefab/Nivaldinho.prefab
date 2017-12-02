@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114604960261027828}
   - component: {fileID: 212837595218589060}
   - component: {fileID: 114191071241262760}
+  - component: {fileID: 114017821435270056}
   - component: {fileID: 114045194874139120}
   m_Layer: 8
   m_Name: Nivaldinho
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692913245337298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.336, y: 0, z: -1}
+  m_LocalPosition: {x: -5.15, y: -1.45, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,13 +91,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114045194874139120
+--- !u!114 &114017821435270056
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692913245337298}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0eb52aaae5884abeb9588e31fe8aec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &114045194874139120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692913245337298}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5509e640ba7004c3a8295424fc0ade32, type: 3}
   m_Name: 
@@ -128,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d7b96a770d4a069f0fa21e2dae3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {x: 0, y: 0}
 --- !u!212 &212837595218589060
 SpriteRenderer:
   m_ObjectHideFlags: 1
