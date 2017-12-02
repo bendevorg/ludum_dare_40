@@ -12,8 +12,8 @@ public class Controller2D : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 	}
 
-	public void Move(Vector2 input){
-		rb.MovePosition(rb.position + input);
+	public void Move(Vector2 moveAmount){
+		rb.MovePosition(rb.position + moveAmount);
 	}
 	
 }

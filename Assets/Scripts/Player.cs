@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	Controller2D controller;
+	BoxCollider2D collider;
 	PlayerInfo playerInfo;
 
 	Vector2 input;
@@ -20,7 +21,8 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		controller = GetComponent<Controller2D>();	
+		controller = GetComponent<Controller2D>();
+		collider = GetComponent<BoxCollider2D>();
 		playerInfo = new PlayerInfo(false, true, moveSpeed, accelerationTime, Vector3.zero);
 	}
 	
@@ -41,10 +43,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		float targetVelocityX = input.x * playerInfo.moveSpeed;
-		float targetVelocityY = input.y * playerInfo.moveSpeed;
-		playerInfo.velocity.x = Mathf.SmoothDamp(playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, playerInfo.accelerationTime);
-		playerInfo.velocity.y = Mathf.SmoothDamp(playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, playerInfo.accelerationTime);
+					float targetVelocityX = input.x * playerInfo.moveSpeed;
+					float targetVelocityY = input.y * playerInfo.moveSpeed;
+					playerInfo.velocity.x = Mathf.SmoothDamp(playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, playerInfo.accelerationTime);
+					playerInfo.velocity.y = Mathf.SmoothDamp(playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, playerInfo.accelerationTime);
 		controller.Move(playerInfo.velocity * Time.deltaTime);
 	}
 
@@ -52,17 +54,16 @@ public class Player : MonoBehaviour {
 		if (!playerInfo.onDash){
 			playerInfo.onDash = true;
 			playerInfo.inputEnabled = false;
+			collider.isTrigger = true;
 			playerInfo.moveSpeed *= dashSpeedMultiplier;
-			Debug.Log(playerInfo.moveSpeed);
 			dashTimeRemaining = 0f;
 			playerInfo.accelerationTime = 0f;
 		} else if (dashTimeRemaining < dashTime){
 			dashTimeRemaining += Time.deltaTime;
-			Debug.Log("a");
 		} else {
-			Debug.Log("b");
 			playerInfo.onDash = false;
 			playerInfo.inputEnabled = true;
+			collider.isTrigger = false;
 			playerInfo.moveSpeed /= dashSpeedMultiplier;
 			playerInfo.accelerationTime = accelerationTime;
 		}
