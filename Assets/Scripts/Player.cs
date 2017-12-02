@@ -23,13 +23,13 @@ public class Player : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<Controller2D>();
 		collider = GetComponent<BoxCollider2D>();
-		playerInfo = new PlayerInfo(false, true, moveSpeed, accelerationTime, Vector3.zero);
+		playerInfo = new PlayerInfo(false, true, false, moveSpeed, accelerationTime, Vector3.zero);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (playerInfo.inputEnabled){
-			input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
 		} else if(playerInfo.onDash) {
 			Dash();
@@ -43,10 +43,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-					float targetVelocityX = input.x * playerInfo.moveSpeed;
-					float targetVelocityY = input.y * playerInfo.moveSpeed;
-					playerInfo.velocity.x = Mathf.SmoothDamp(playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, playerInfo.accelerationTime);
-					playerInfo.velocity.y = Mathf.SmoothDamp(playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, playerInfo.accelerationTime);
+		float targetVelocityX = input.x * playerInfo.moveSpeed;
+		float targetVelocityY = input.y * playerInfo.moveSpeed;
+		playerInfo.velocity.x = Mathf.SmoothDamp(playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, playerInfo.accelerationTime);
+		playerInfo.velocity.y = Mathf.SmoothDamp(playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, playerInfo.accelerationTime);
 		controller.Move(playerInfo.velocity * Time.deltaTime);
 	}
 
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour {
 		if (!playerInfo.onDash){
 			playerInfo.onDash = true;
 			playerInfo.inputEnabled = false;
+			playerInfo.attack = true;
 			collider.isTrigger = true;
 			playerInfo.moveSpeed *= dashSpeedMultiplier;
 			dashTimeRemaining = 0f;
@@ -63,22 +64,32 @@ public class Player : MonoBehaviour {
 		} else {
 			playerInfo.onDash = false;
 			playerInfo.inputEnabled = true;
+			playerInfo.attack = false;
 			collider.isTrigger = false;
 			playerInfo.moveSpeed /= dashSpeedMultiplier;
 			playerInfo.accelerationTime = accelerationTime;
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
+		Debug.Log(other.tag);
+		if (other.tag == "Enemy" && playerInfo.attack){
+			other.GetComponent<LivingEntity>().TakeDamage(5);
+		}
+	}
+
 	struct PlayerInfo {
 		public bool onDash;
 		public bool inputEnabled;
+		public bool attack;
 		public float moveSpeed;
 		public float accelerationTime;
 		public Vector3 velocity;
 
-		public PlayerInfo(bool _onDash, bool _inputEnabled, float _moveSpeed, float _accelerationTime, Vector3 _velocity){
+		public PlayerInfo(bool _onDash, bool _inputEnabled, bool _attack, float _moveSpeed, float _accelerationTime, Vector3 _velocity){
 			onDash = _onDash;
 			inputEnabled = _inputEnabled;
+			attack = _attack;
 			moveSpeed = _moveSpeed;
 			accelerationTime = _accelerationTime;
 			velocity = _velocity;

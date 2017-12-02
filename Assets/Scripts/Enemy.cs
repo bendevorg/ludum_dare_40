@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
-public class Enemy : MonoBehaviour {
+public class Enemy : LivingEntity {
 
 	Controller2D controller;
 	EnemyInfo enemyInfo;
