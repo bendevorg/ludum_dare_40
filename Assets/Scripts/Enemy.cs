@@ -7,6 +7,7 @@ public class Enemy : LivingEntity {
 
 	Controller2D controller;
 	EnemyInfo enemyInfo;
+	EnemyShoot enemyShoot;
 
 	public float moveSpeed = 20f;
 	float accelerationTime = .1f;
@@ -19,6 +20,7 @@ public class Enemy : LivingEntity {
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
+		enemyShoot = GetComponent<EnemyShoot>();
 		enemyInfo = new EnemyInfo(moveSpeed, accelerationTime, Vector3.zero);
 		players = new List<Transform>();
 		GameObject[] playersGameObject = GameObject.FindGameObjectsWithTag("Player");
@@ -31,6 +33,7 @@ public class Enemy : LivingEntity {
 	void Update () {
 		input = new Vector2(players[0].position.x - transform.position.x, players[0].position.y - transform.position.y);
 		input = input.normalized;
+		enemyShoot.Shoot(players[0].position);
 	}
 	
 	void FixedUpdate(){
