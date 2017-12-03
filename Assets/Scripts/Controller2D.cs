@@ -19,8 +19,10 @@ public class Controller2D : MonoBehaviour {
 	float accelerationTime = .1f;
 
 	public Vector2 playerInput;
-
 	List<Controller2D> otherPlayers;
+
+	public enum Powerups {None = -1, Dash = 0, Zhonya = 1, Freeze = 2};
+	Powerups[] powerups = new Powerups[] {Powerups.None, Powerups.None};
 
 	public float dashSpeedMultiplier = 40f;
 	public float dashTime = .25f;
@@ -53,7 +55,6 @@ public class Controller2D : MonoBehaviour {
 				otherPlayers.Add(player.GetComponent<Controller2D>());
 			}
 		}
-
 	}
 
 	public void Move(Vector2 moveAmount, Vector2 input) {
@@ -71,6 +72,23 @@ public class Controller2D : MonoBehaviour {
 			animator.SetBool("isWalking", false);
 		}
 	}	
+
+	public void UsePowerup(int usedPowerup){
+		switch(powerups[usedPowerup]){
+			case Powerups.Dash:
+				Dash();
+				break;
+			case Powerups.Zhonya:
+				Zhonya();
+				break;
+			case Powerups.Freeze:
+				Freeze();
+				break;
+			default:
+				break;
+		}
+		powerups[usedPowerup] = Powerups.None;
+	}
 
 	public void Dash(){
 		if (!playerInfo.onDash){
@@ -139,8 +157,12 @@ public class Controller2D : MonoBehaviour {
 				ChangeColor(defaultColor);
 				Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
 				foreach(Controller2D enemy in otherPlayers){
-					enemy.StopMovement();
-					enemy.ChangeColor(frozenColor);
+					if (enemy == null){
+						otherPlayers.Remove(enemy);
+					} else {
+						enemy.StopMovement();
+						enemy.ChangeColor(frozenColor);
+					}
 				}
 			}
 			freezeTimeRemaining += Time.deltaTime;
@@ -148,8 +170,12 @@ public class Controller2D : MonoBehaviour {
 			playerInfo.onFreeze = false;
 			Color defaultColor = new Color(255f, 255f, 255f, 1f);
 			foreach(Controller2D enemy in otherPlayers){
-				enemy.RecoverMovement();
-				enemy.ChangeColor(defaultColor);
+				if (enemy == null){
+					otherPlayers.Remove(enemy);
+				} else {
+					enemy.RecoverMovement();
+					enemy.ChangeColor(defaultColor);
+				}
 			}
 		}
 	}
@@ -174,7 +200,15 @@ public class Controller2D : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider){
 		if (collider.tag == "Powerup"){
-			Debug.Log("Receive Powerup");
+			int newPowerup = collider.GetComponent<PowerUp>().GetPowerup();
+			//	TODO: Redo this to be more flexible
+			if (powerups[0] == Powerups.None){
+				powerups[0] = (Powerups)newPowerup;
+			} else if(powerups[1] == Powerups.None){
+				powerups[1] = (Powerups)newPowerup;
+			} else {
+				powerups[0] = (Powerups)newPowerup;
+			}
 			Destroy(collider.gameObject);
 		}
 	}

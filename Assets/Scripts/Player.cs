@@ -33,12 +33,10 @@ public class Player : LivingEntity {
 			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
 
-			if (Input.GetKeyDown(KeyCode.Space)){
-				controller.Dash();
-			} else if (Input.GetKeyDown(KeyCode.C)){
-				controller.Zhonya();
+			if (Input.GetKeyDown(KeyCode.Z)){
+				controller.UsePowerup(0);
 			} else if (Input.GetKeyDown(KeyCode.X)){
-				controller.Freeze();
+				controller.UsePowerup(1);
 			}
 		}
 	}

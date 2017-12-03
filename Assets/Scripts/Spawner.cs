@@ -21,12 +21,6 @@ public class Spawner : MonoBehaviour {
 		nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn) + Time.time;
 		mapOffsetX = Mathf.Abs(mapSize.min.x - mapSize.max.x)*0.2f;
 		mapOffsetY = Mathf.Abs(mapSize.min.y - mapSize.max.y)*0.2f;
-		Debug.Log(mapSize.min.x);
-		Debug.Log(mapSize.max.x);
-		Debug.Log(mapSize.min.y);
-		Debug.Log(mapSize.max.y);
-		Debug.Log(mapOffsetX);
-		Debug.Log(mapOffsetY);
 	}
 	
 	// Update is called once per frame

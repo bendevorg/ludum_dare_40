@@ -8,6 +8,8 @@ public class LivingEntity : MonoBehaviour {
 	[Range(1, 1000)]
 	public int health = 1;
 
+	public event System.Action OnDeath;
+
 	public event Action<LivingEntity> OnEntityDeath;
 
 	public void TakeDamage(int damage){
@@ -18,6 +20,9 @@ public class LivingEntity : MonoBehaviour {
 	}
 
 	void Death(){
+		if (OnDeath != null){
+				OnDeath();
+		};
 		GameObject.Destroy(gameObject);
 	}
 
