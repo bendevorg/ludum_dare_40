@@ -20,6 +20,7 @@ public class Controller2D : MonoBehaviour {
 
 	public Vector2 playerInput;
 
+	List<Controller2D> otherPlayers;
 
 	public float dashSpeedMultiplier = 40f;
 	public float dashTime = .25f;
@@ -44,6 +45,15 @@ public class Controller2D : MonoBehaviour {
 		collider = GetComponent<BoxCollider2D>();
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+
+		otherPlayers = new List<Controller2D>();
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		foreach(GameObject player in players){
+			if (player.transform != this.transform){
+				otherPlayers.Add(player.GetComponent<Controller2D>());
+			}
+		}
+
 	}
 
 	public void Move(Vector2 moveAmount, Vector2 input) {
@@ -62,7 +72,7 @@ public class Controller2D : MonoBehaviour {
 		}
 	}	
 
-	public void Dash(ref PlayerInfo playerInfo){
+	public void Dash(){
 		if (!playerInfo.onDash){
 			playerInfo.onDash = true;
 			playerInfo.inputEnabled = false;
@@ -83,10 +93,10 @@ public class Controller2D : MonoBehaviour {
 		}
 	}
 
-	public void Zhonya(ref PlayerInfo playerInfo) {
+	public void Zhonya() {
 		if (!playerInfo.onZhonya){
 			playerInfo.onZhonya = true;
-			StopMovement(ref playerInfo);
+			StopMovement();
 			collider.isTrigger = true;
 			zhonyaTimeRemaining = 0f;
 			zhonyaDrawbackTimeRemaining = 0f;
@@ -108,33 +118,43 @@ public class Controller2D : MonoBehaviour {
 			zhonyaDrawbackTimeRemaining += Time.deltaTime;
 		} else {
 			playerInfo.onZhonya = false;
-			RecoverMovement(ref playerInfo);
+			RecoverMovement();
 		}
 	}
 
-	public void Freeze(ref PlayerInfo playerInfo){
+	public void Freeze(){
 		if (!playerInfo.onFreeze){
 			playerInfo.onFreeze = true;
 			userFreezeTimeRemaining = 0f;
 			freezeTimeRemaining = 0f;
-			StopMovement(ref playerInfo);
+			StopMovement();
 			Color color = new Color(0f, 0f, 255f, 0.7f);
 			ChangeColor(color);
 		} else if (userFreezeTimeRemaining < userFreezeTime){
 			userFreezeTimeRemaining += Time.deltaTime;
 		} else if (freezeTimeRemaining < freezeTime){
 			if (!playerInfo.inputEnabled){
-				RecoverMovement(ref playerInfo);
-				Color color = new Color(255f, 255f, 255f, 1f);
-				ChangeColor(color);
+				RecoverMovement();
+				Color defaultColor = new Color(255f, 255f, 255f, 1f);
+				ChangeColor(defaultColor);
+				Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
+				foreach(Controller2D enemy in otherPlayers){
+					enemy.StopMovement();
+					enemy.ChangeColor(frozenColor);
+				}
 			}
 			freezeTimeRemaining += Time.deltaTime;
 		} else {
 			playerInfo.onFreeze = false;
+			Color defaultColor = new Color(255f, 255f, 255f, 1f);
+			foreach(Controller2D enemy in otherPlayers){
+				enemy.RecoverMovement();
+				enemy.ChangeColor(defaultColor);
+			}
 		}
 	}
 
-	public void StopMovement(ref PlayerInfo playerInfo){
+	public void StopMovement(){
 		playerInfo.inputEnabled = false;
 		playerInfo.moveSpeed = 0;
 		playerInfo.accelerationTime = 0;
@@ -146,7 +166,7 @@ public class Controller2D : MonoBehaviour {
 		spriteRenderer.color = color;
 	}
 
-	public void RecoverMovement(ref PlayerInfo playerInfo){
+	public void RecoverMovement(){
 		playerInfo.inputEnabled = true;
 		playerInfo.moveSpeed = moveSpeed;
 		playerInfo.accelerationTime = accelerationTime;

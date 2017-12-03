@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 95203907795355004}
   m_Layer: 8
   m_Name: b4e
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,6 +184,8 @@ MonoBehaviour:
   dashTime: 0.25
   zhonyaTime: 2
   zhonyaDrawbackTime: 2
+  userFreezeTime: 3
+  freezeTime: 3
 --- !u!212 &212837595218589060
 SpriteRenderer:
   m_ObjectHideFlags: 1

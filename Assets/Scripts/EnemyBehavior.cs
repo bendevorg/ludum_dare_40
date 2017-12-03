@@ -26,25 +26,28 @@ public class EnemyBehavior : MonoBehaviour {
 		raycastOrigins = new RaycastOrigins();
 	}
 
-	public void NextMovement(ref Vector2 input, ref PlayerInfo enemyInfo){
+	public void NextMovement(ref Vector2 input){
 
 		// Wait for dash to end
-		if (enemyInfo.onDash){
-			controller.Dash(ref enemyInfo);
-		} else if (enemyInfo.onZhonya){
-			controller.Zhonya(ref enemyInfo);
+		if (controller.playerInfo.onDash){
+			controller.Dash();
+		} else if (controller.playerInfo.onZhonya){
+			controller.Zhonya();
+		} else if (controller.playerInfo.onFreeze){
+			controller.Zhonya();
 		}
 
-		if (dangerZone){
-			if (!enemyInfo.onDash) {
-				controller.Dash(ref enemyInfo);
-			}
-			if (!enemyInfo.onZhonya) {
-				controller.Zhonya(ref enemyInfo);
-			}
-		}
+		if(controller.playerInfo.inputEnabled){
 
-		if(enemyInfo.inputEnabled){
+			if (dangerZone){
+				if (!controller.playerInfo.onDash) {
+					controller.Dash();
+				}
+				if (!controller.playerInfo.onZhonya) {
+					controller.Zhonya();
+				}
+			}
+
 			Vector2 perpendicularDirection = ball.velocity.Rotate(90f);
 
 			if (Mathf.Sign(ball.velocity.x) == 1 && 

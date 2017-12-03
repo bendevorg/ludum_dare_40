@@ -37,7 +37,9 @@ public class BallController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other) {
 		if (other.collider.tag == "Wall"){
 			rb.velocity = CalculateBallVelocity(ballSpeedIncrementOnBounce);
-		} else if (other.collider.tag == "Player" || other.collider.tag == "Enemy"){
+			float forward = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(0f, 0f, forward);
+		} else if (other.collider.tag == "Player"){
 			other.collider.GetComponent<LivingEntity>().TakeDamage(999);
 		}
 	}

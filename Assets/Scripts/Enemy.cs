@@ -8,7 +8,6 @@ public class Enemy : LivingEntity {
 
 	Controller2D controller;
 	EnemyBehavior enemyBehavior;
-	PlayerInfo enemyInfo;
 
 	float velocityXSmoothing;
 	float velocityYSmoothing;
@@ -20,7 +19,6 @@ public class Enemy : LivingEntity {
 	void Start () {
 		controller = GetComponent<Controller2D>();
 		enemyBehavior = GetComponent<EnemyBehavior>();
-		enemyInfo = controller.playerInfo;
 		players = new List<Transform>();
 		GameObject[] playersGameObject = GameObject.FindGameObjectsWithTag("Player");
 		foreach(GameObject player in playersGameObject){
@@ -30,14 +28,14 @@ public class Enemy : LivingEntity {
 	
 	// Update is called once per frame
 	void Update () {
-		enemyBehavior.NextMovement(ref input, ref enemyInfo);
+		enemyBehavior.NextMovement(ref input);
 	}
 	
 	void FixedUpdate(){
-		float targetVelocityX = input.x * enemyInfo.moveSpeed;
-		float targetVelocityY = input.y * enemyInfo.moveSpeed;
-		enemyInfo.velocity.x = Mathf.SmoothDamp(enemyInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, enemyInfo.accelerationTime);
-		enemyInfo.velocity.y = Mathf.SmoothDamp(enemyInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, enemyInfo.accelerationTime);
-		controller.Move(enemyInfo.velocity * Time.deltaTime, input);
+		float targetVelocityX = input.x * controller.playerInfo.moveSpeed;
+		float targetVelocityY = input.y * controller.playerInfo.moveSpeed;
+		controller.playerInfo.velocity.x = Mathf.SmoothDamp(controller.playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, controller.playerInfo.accelerationTime);
+		controller.playerInfo.velocity.y = Mathf.SmoothDamp(controller.playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, controller.playerInfo.accelerationTime);
+		controller.Move(controller.playerInfo.velocity * Time.deltaTime, input);
 	}
 }
