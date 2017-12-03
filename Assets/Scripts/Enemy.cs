@@ -10,8 +10,6 @@ public class Enemy : LivingEntity {
 	EnemyBehavior enemyBehavior;
 	PlayerInfo enemyInfo;
 
-	public float moveSpeed = 20f;
-	float accelerationTime = .1f;
 	float velocityXSmoothing;
 	float velocityYSmoothing;
 
@@ -22,7 +20,7 @@ public class Enemy : LivingEntity {
 	void Start () {
 		controller = GetComponent<Controller2D>();
 		enemyBehavior = GetComponent<EnemyBehavior>();
-		enemyInfo = new PlayerInfo(false, true, false, moveSpeed, accelerationTime, Vector3.zero);
+		enemyInfo = controller.playerInfo;
 		players = new List<Transform>();
 		GameObject[] playersGameObject = GameObject.FindGameObjectsWithTag("Player");
 		foreach(GameObject player in playersGameObject){
@@ -38,7 +36,6 @@ public class Enemy : LivingEntity {
 	void FixedUpdate(){
 		float targetVelocityX = input.x * enemyInfo.moveSpeed;
 		float targetVelocityY = input.y * enemyInfo.moveSpeed;
-		Debug.Log(enemyInfo.moveSpeed);
 		enemyInfo.velocity.x = Mathf.SmoothDamp(enemyInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, enemyInfo.accelerationTime);
 		enemyInfo.velocity.y = Mathf.SmoothDamp(enemyInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, enemyInfo.accelerationTime);
 		controller.Move(enemyInfo.velocity * Time.deltaTime, input);

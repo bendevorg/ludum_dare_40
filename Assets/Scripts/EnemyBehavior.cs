@@ -31,11 +31,16 @@ public class EnemyBehavior : MonoBehaviour {
 		// Wait for dash to end
 		if (enemyInfo.onDash){
 			controller.Dash(ref enemyInfo);
+		} else if (enemyInfo.onZhonya){
+			controller.Zhonya(ref enemyInfo);
 		}
 
 		if (dangerZone){
-			if (!enemyInfo.onDash){
+			if (!enemyInfo.onDash) {
 				controller.Dash(ref enemyInfo);
+			}
+			if (!enemyInfo.onZhonya) {
+				controller.Zhonya(ref enemyInfo);
 			}
 		}
 

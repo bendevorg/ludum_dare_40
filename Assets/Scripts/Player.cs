@@ -12,14 +12,12 @@ public class Player : LivingEntity {
 	Vector2 input;
 	float velocityXSmoothing;
 	float velocityYSmoothing;
-	float accelerationTime = .1f;
-	public float moveSpeed = 2f;
 
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
 		collider = GetComponent<BoxCollider2D>();
-		playerInfo = new PlayerInfo(false, true, false, moveSpeed, accelerationTime, Vector3.zero);
+		playerInfo = controller.playerInfo;
 	}
 	
 	// Update is called once per frame
@@ -29,11 +27,17 @@ public class Player : LivingEntity {
 			input = input.normalized;
 		} else if(playerInfo.onDash && (Mathf.Abs(input.x) + Mathf.Abs(input.y) != 0)) {
 			controller.Dash(ref playerInfo);
+		} else if(playerInfo.onZhonya){
+			controller.Zhonya(ref playerInfo);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space)){
 			if (!playerInfo.onDash){
 				controller.Dash(ref playerInfo);
+			}
+		} else if (Input.GetKeyDown(KeyCode.C)){
+			if (!playerInfo.onZhonya){
+				controller.Zhonya(ref playerInfo);
 			}
 		}
 	}

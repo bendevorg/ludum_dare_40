@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114191071241262760}
   - component: {fileID: 114017821435270056}
   - component: {fileID: 114045194874139120}
+  - component: {fileID: 58485746956249144}
   m_Layer: 8
   m_Name: Nivaldinho
   m_TagString: Enemy
@@ -61,11 +62,26 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b4981b84896644fac8a56bbe1e8a5871, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &58485746956249144
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692913245337298}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!61 &61029832529667544
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -74,7 +90,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1692913245337298}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b4981b84896644fac8a56bbe1e8a5871, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -104,7 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
+  raycastCount: 5
+  map: {fileID: 0}
 --- !u!114 &114045194874139120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  moveSpeed: 0.05
 --- !u!114 &114604960261027828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d7b96a770d4a069f0fa21e2dae3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 4
   playerInput: {x: 0, y: 0}
+  dashSpeedMultiplier: 7
+  dashTime: 0.25
+  zhonyaTime: 2
 --- !u!212 &212837595218589060
 SpriteRenderer:
   m_ObjectHideFlags: 1
