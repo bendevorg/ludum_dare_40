@@ -30,6 +30,11 @@ public class Controller2D : MonoBehaviour {
 	public float zhonyaDrawbackTime = 2f;
 	float zhonyaDrawbackTimeRemaining;
 
+	public float userFreezeTime = 3f;
+	float userFreezeTimeRemaining;
+	public float freezeTime = 3f;
+	float freezeTimeRemaining;
+
 	void Awake(){
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
 	}
@@ -81,14 +86,10 @@ public class Controller2D : MonoBehaviour {
 	public void Zhonya(ref PlayerInfo playerInfo) {
 		if (!playerInfo.onZhonya){
 			playerInfo.onZhonya = true;
-			playerInfo.inputEnabled = false;
-			playerInfo.moveSpeed = 0;
-			playerInfo.accelerationTime = 0f;
+			StopMovement(ref playerInfo);
 			collider.isTrigger = true;
 			zhonyaTimeRemaining = 0f;
 			zhonyaDrawbackTimeRemaining = 0f;
-			playerInfo.velocity.x = 0;
-			playerInfo.velocity.y = 0;
 
 			// Color
 			Color temp = spriteRenderer.color;
@@ -107,9 +108,48 @@ public class Controller2D : MonoBehaviour {
 			zhonyaDrawbackTimeRemaining += Time.deltaTime;
 		} else {
 			playerInfo.onZhonya = false;
-			playerInfo.inputEnabled = true;
-			playerInfo.moveSpeed = moveSpeed;
-			playerInfo.accelerationTime = accelerationTime;
+			RecoverMovement(ref playerInfo);
 		}
 	}
+
+	public void Freeze(ref PlayerInfo playerInfo){
+		if (!playerInfo.onFreeze){
+			playerInfo.onFreeze = true;
+			userFreezeTimeRemaining = 0f;
+			freezeTimeRemaining = 0f;
+			StopMovement(ref playerInfo);
+			Color color = new Color(0f, 0f, 255f, 0.7f);
+			ChangeColor(color);
+		} else if (userFreezeTimeRemaining < userFreezeTime){
+			userFreezeTimeRemaining += Time.deltaTime;
+		} else if (freezeTimeRemaining < freezeTime){
+			if (!playerInfo.inputEnabled){
+				RecoverMovement(ref playerInfo);
+				Color color = new Color(255f, 255f, 255f, 1f);
+				ChangeColor(color);
+			}
+			freezeTimeRemaining += Time.deltaTime;
+		} else {
+			playerInfo.onFreeze = false;
+		}
+	}
+
+	public void StopMovement(ref PlayerInfo playerInfo){
+		playerInfo.inputEnabled = false;
+		playerInfo.moveSpeed = 0;
+		playerInfo.accelerationTime = 0;
+		playerInfo.velocity.x = 0;
+		playerInfo.velocity.y = 0;
+	}
+
+	public void ChangeColor(Color color){
+		spriteRenderer.color = color;
+	}
+
+	public void RecoverMovement(ref PlayerInfo playerInfo){
+		playerInfo.inputEnabled = true;
+		playerInfo.moveSpeed = moveSpeed;
+		playerInfo.accelerationTime = accelerationTime;
+	}
+
 }

@@ -22,22 +22,25 @@ public class Player : LivingEntity {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (playerInfo.onDash && (Mathf.Abs(input.x) + Mathf.Abs(input.y) != 0)){
+			controller.Dash(ref playerInfo);	
+		} else if(playerInfo.onZhonya){
+			controller.Zhonya(ref playerInfo);
+		} else if(playerInfo.onFreeze){
+			controller.Freeze(ref playerInfo);
+		}
+		
 		if (playerInfo.inputEnabled){
 			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
-		} else if(playerInfo.onDash && (Mathf.Abs(input.x) + Mathf.Abs(input.y) != 0)) {
-			controller.Dash(ref playerInfo);
-		} else if(playerInfo.onZhonya){
-			controller.Zhonya(ref playerInfo);
-		}
 
-		if (Input.GetKeyDown(KeyCode.Space)){
-			if (!playerInfo.onDash){
+			if (Input.GetKeyDown(KeyCode.Space)){
 				controller.Dash(ref playerInfo);
-			}
-		} else if (Input.GetKeyDown(KeyCode.C)){
-			if (!playerInfo.onZhonya){
+			} else if (Input.GetKeyDown(KeyCode.C)){
 				controller.Zhonya(ref playerInfo);
+			} else if (Input.GetKeyDown(KeyCode.X)){
+				controller.Freeze(ref playerInfo);
 			}
 		}
 	}

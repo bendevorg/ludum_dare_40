@@ -3,6 +3,7 @@
 public struct PlayerInfo {
 	public bool onDash;
 	public bool onZhonya;
+	public bool onFreeze;
 	public bool inputEnabled;
 	public bool attack;
 	public float moveSpeed;
@@ -12,6 +13,7 @@ public struct PlayerInfo {
 	public PlayerInfo(float _moveSpeed, float _accelerationTime, Vector3 _velocity){
 		onDash = false;
 		onZhonya = false;
+		onFreeze = false;
 		inputEnabled = true;
 		attack = false;
 		moveSpeed = _moveSpeed;
