@@ -11,17 +11,25 @@ public class Controller2D : MonoBehaviour {
 	Animator animator;
 	public Vector2 playerInput;
 
-	void Start(){
+	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 	}
 
-	public void Move(Vector2 moveAmount, Vector2 input){
+	public void Move(Vector2 moveAmount, Vector2 input) {
 		rb.MovePosition(rb.position + moveAmount);
 		playerInput = input;
 
 		//	Update animation
-		animator.SetFloat("velocityX", input.x);
-		animator.SetFloat("velocityY", input.y);
-	}	
+		animator.SetFloat("inputX", input.x);
+		animator.SetFloat("inputY", input.y);
+		if (input.x != 0 || input.y != 0) {
+			animator.SetBool("isWalking", true);
+			animator.SetFloat("lastInputX", input.x);
+			animator.SetFloat("lastInputY", input.y);
+		} else {
+			animator.SetBool("isWalking", false);
+
+		}
+	}
 }
