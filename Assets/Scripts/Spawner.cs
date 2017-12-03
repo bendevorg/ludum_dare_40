@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour {
 	public PowerUp powerUp;
 	PowerUp instantiatedPowerup;
 
-	public BoxCollider2D map;
+	public Collider2D map;
 	Bounds mapSize;
 	float mapOffsetX;
 	float mapOffsetY;
@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour {
 		nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn) + Time.time;
 		mapOffsetX = Mathf.Abs(mapSize.min.x - mapSize.max.x)*0.2f;
 		mapOffsetY = Mathf.Abs(mapSize.min.y - mapSize.max.y)*0.2f;
+		Debug.Log(mapSize.max.x);
 	}
 	
 	// Update is called once per frame
