@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
 	public PowerUp powerUp;
+	PowerUp instantiatedPowerup;
 
 	public BoxCollider2D map;
 	Bounds mapSize;
@@ -14,6 +15,7 @@ public class Spawner : MonoBehaviour {
 	public float minTimeToSpawn = 6f;
 	public float maxTimeToSpawn = 15f;
 	float nextTimeToSpawn;
+	float timeToSpawnReamining;
 
 	// Use this for initialization
 	void Start () {
@@ -25,18 +27,26 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		SpawnPowerup();
+		if (instantiatedPowerup == null)
+			SpawnPowerup();
 	}
 
 	void SpawnPowerup(){
-		if (nextTimeToSpawn <= Time.time){
+		if (timeToSpawnReamining > nextTimeToSpawn){
 			// Spawn powerup
 			nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn) + Time.time;
 			float spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
 			float spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
 			Vector3 spawnLocation = new Vector3(spawnX, spawnY, -2f);
-			Instantiate(powerUp, spawnLocation, Quaternion.identity);
+			instantiatedPowerup =  Instantiate(powerUp, spawnLocation, Quaternion.identity);
+			instantiatedPowerup.OnPickup += ClearPowerup;
+		} else {
+			timeToSpawnReamining += Time.deltaTime;
 		}
+	}
+
+	void ClearPowerup(){
+		instantiatedPowerup = null;
 	}
 
 }

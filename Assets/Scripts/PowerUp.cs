@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 
+	public event System.Action OnPickup;
+
 	public int amountOfPowerups = 3;
 	int powerUp;
 
@@ -13,5 +15,12 @@ public class PowerUp : MonoBehaviour {
 
 	public int GetPowerup(){
 		return powerUp;
+	}
+
+	public void Destroy(){
+		if (OnPickup != null){
+			OnPickup();
+		}
+		Destroy(this.gameObject);
 	}
 }

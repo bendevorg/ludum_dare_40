@@ -225,7 +225,7 @@ public class Controller2D : MonoBehaviour {
 				powerups[0] = (Powerups)newPowerup;
 				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
 			}
-			Destroy(collider.gameObject);
+			collider.GetComponent<PowerUp>().Destroy();
 		}
 	}
 
