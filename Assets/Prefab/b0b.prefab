@@ -124,6 +124,8 @@ MonoBehaviour:
   dashTime: 0.25
   zhonyaTime: 2
   zhonyaDrawbackTime: 2
+  userFreezeTime: 3
+  freezeTime: 3
 --- !u!114 &114798479451797224
 MonoBehaviour:
   m_ObjectHideFlags: 1

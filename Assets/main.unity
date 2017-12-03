@@ -869,7 +869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1382102150
 Transform:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1003,11 +1003,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 355707139}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
   m_IsPrefabParent: 0
