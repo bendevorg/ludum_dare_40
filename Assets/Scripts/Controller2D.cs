@@ -25,6 +25,8 @@ public class Controller2D : MonoBehaviour {
 
 	public float zhonyaTime = 2f;
 	float zhonyaTimeRemaining;
+	public float zhonyaDrawbackTime = 2f;
+	float zhonyaDrawbackTimeRemaining;
 
 	void Awake(){
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
@@ -70,6 +72,7 @@ public class Controller2D : MonoBehaviour {
 			playerInfo.accelerationTime = 0f;
 			collider.isTrigger = true;
 			zhonyaTimeRemaining = 0f;
+			zhonyaDrawbackTimeRemaining = 0f;
 			playerInfo.velocity.x = 0;
 			playerInfo.velocity.y = 0;
 
@@ -79,17 +82,20 @@ public class Controller2D : MonoBehaviour {
 			spriteRenderer.color = temp;
 		} else if (zhonyaTimeRemaining < zhonyaTime){
 			zhonyaTimeRemaining += Time.deltaTime;
+		} else if (zhonyaDrawbackTimeRemaining < zhonyaDrawbackTime){
+				if (collider.isTrigger){
+					collider.isTrigger = false;
+					// Color
+					Color temp = spriteRenderer.color;
+					temp.a = 1f;
+					spriteRenderer.color = temp;
+				}
+			zhonyaDrawbackTimeRemaining += Time.deltaTime;
 		} else {
 			playerInfo.onZhonya = false;
 			playerInfo.inputEnabled = true;
 			playerInfo.moveSpeed = moveSpeed;
 			playerInfo.accelerationTime = accelerationTime;
-			collider.isTrigger = false;
-
-			// Color
-			Color temp = spriteRenderer.color;
-			temp.a = 1f;
-			spriteRenderer.color = temp;
 		}
 	}
 }
