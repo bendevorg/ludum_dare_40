@@ -46,11 +46,15 @@ public class BallController : MonoBehaviour {
 			rb.velocity = CalculateBallVelocity(ballSpeedIncrementOnBounce);
 			float forward = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0f, 0f, forward);
-            source.pitch = Random.Range(lowPitchRange, highPitchRange);
-            float hitVol = other.relativeVelocity.magnitude * velToVol;
-            source.PlayOneShot(hitWall, hitVol);
-        } else if (other.collider.tag == "Player"){
+			source.pitch = Random.Range(lowPitchRange, highPitchRange);
+			float hitVol = other.relativeVelocity.magnitude * velToVol;
+			source.PlayOneShot(hitWall, hitVol);
+			float shakeDuration = 0.2f * (Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.y))/ballMaxSpeed);
+			float shakeAmount = 0.2f * (Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.y))/ballMaxSpeed);;
+			CameraShaker.Shake(shakeDuration, shakeAmount);
+		} else if (other.collider.tag == "Player"){
 			other.collider.GetComponent<LivingEntity>().TakeDamage(999);
+			CameraShaker.Shake(0.3f, 0.3f);
 		}
 	}
 }
