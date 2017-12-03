@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
 
+	Controller2D controller;
+
 	Rigidbody2D ball;
 	CircleCollider2D ballCollider;
+	CircleCollider2D enemyCollider;
 
 	public LayerMask playerMask;
 	[Range(2, 10)]
@@ -14,34 +17,34 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public BoxCollider2D map;
 
+	bool dangerZone = false;
+
 	void Start(){
+		controller = GetComponent<Controller2D>();
 		ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody2D>();
 		ballCollider = ball.GetComponent<CircleCollider2D>();
 		raycastOrigins = new RaycastOrigins();
 	}
 
-	public void NextMovement(ref Vector2 input){
-		UpdateRaycastOrigins();
-		// Defensive Behavior first
-		for (int i = 1; i <= raycastCount; i++){
+	public void NextMovement(ref Vector2 input, ref PlayerInfo enemyInfo){
 
-			Vector2 raycastOrigin = new Vector2(raycastOrigins.bottomLeft.x + (raycastOrigins.topRight.x - raycastOrigins.bottomLeft.x)/i,
-				raycastOrigins.bottomLeft.y + (raycastOrigins.topRight.y - raycastOrigins.bottomLeft.y)/i);
-
-			Debug.Log(ballCollider.bounds.min.y + (ballCollider.bounds.max.y + ballCollider.bounds.min.y)/2);
-			RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, ball.velocity, Mathf.Infinity, playerMask);
-			Debug.DrawRay(raycastOrigin, ball.velocity, Color.red);
-
-			if (hit && hit.collider.transform == this.transform){
-				input = new Vector2(hit.collider.transform.position.x + transform.position.x, hit.collider.transform.position.y + transform.position.y);
-				input = input.normalized;
-				return;
+		if (dangerZone){
+			Debug.Log("Top term");
+			if (!enemyInfo.onDash){
+				Debug.Log("Olha que bosta");
+				controller.Dash(ref enemyInfo);
 			}
 		}
 
-		// No action avaiable go to center for now
-		input = new Vector2(map.bounds.center.x - transform.position.x, map.bounds.center.y - transform.position.y);
-		input = input.normalized;
+		Vector2 perpendicularDirection = ball.velocity.Rotate(90f);
+		if ((Mathf.Sign(perpendicularDirection.x) > 0 && transform.position.x < ball.transform.position.x) ||
+			(Mathf.Sign(perpendicularDirection.x) < 0 && transform.position.x > ball.transform.position.x)){
+			perpendicularDirection.x *= -1;
+		} else if ((Mathf.Sign(perpendicularDirection.y) > 0 && transform.position.y < ball.transform.position.y) ||
+			(Mathf.Sign(perpendicularDirection.y) < 0 && transform.position.y > ball.transform.position.y)){
+			perpendicularDirection.y *= -1;
+		}
+		input = perpendicularDirection.normalized;
 	}
 
 	public void UpdateRaycastOrigins(){
@@ -56,4 +59,17 @@ public class EnemyBehavior : MonoBehaviour {
 		public Vector2 topLeft, topRight;
 		public Vector2 bottomLeft, bottomRight;
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "Ball"){
+			dangerZone = true;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other){
+		if (other.tag == "Ball"){
+			dangerZone = false;
+		}
+	}
+
 }

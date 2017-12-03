@@ -15,10 +15,6 @@ public class Player : LivingEntity {
 	float accelerationTime = .1f;
 	public float moveSpeed = 2f;
 
-	public float dashSpeedMultiplier = 40f;
-	public float dashTime = .25f;
-	float dashTimeRemaining;
-
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
@@ -32,12 +28,12 @@ public class Player : LivingEntity {
 			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
 		} else if(playerInfo.onDash && (Mathf.Abs(input.x) + Mathf.Abs(input.y) != 0)) {
-			Dash();
+			controller.Dash(ref playerInfo);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space)){
 			if (!playerInfo.onDash){
-				Dash();
+				controller.Dash(ref playerInfo);
 			}
 		}
 	}
@@ -48,27 +44,6 @@ public class Player : LivingEntity {
 		playerInfo.velocity.x = Mathf.SmoothDamp(playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, playerInfo.accelerationTime);
 		playerInfo.velocity.y = Mathf.SmoothDamp(playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, playerInfo.accelerationTime);
 		controller.Move(playerInfo.velocity * Time.deltaTime, input);
-	}
-
-	void Dash(){
-		if (!playerInfo.onDash){
-			playerInfo.onDash = true;
-			playerInfo.inputEnabled = false;
-			playerInfo.attack = true;
-			playerInfo.moveSpeed *= dashSpeedMultiplier;
-			dashTimeRemaining = 0f;
-			playerInfo.accelerationTime = 0f;
-		} else if (dashTimeRemaining < dashTime){
-			dashTimeRemaining += Time.deltaTime;
-		} else {
-			playerInfo.onDash = false;
-			playerInfo.inputEnabled = true;
-			playerInfo.attack = false;
-			playerInfo.moveSpeed /= dashSpeedMultiplier;
-			playerInfo.accelerationTime = accelerationTime;
-			playerInfo.velocity.x = 0;
-			playerInfo.velocity.y = 0;
-		}
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
@@ -85,23 +60,5 @@ public class Player : LivingEntity {
 		} //else if (other.collider.tag == "Wall" && playerInfo.onDash){
 			//transform.GetComponent<LivingEntity>().TakeDamage(99999);
 		//}
-	}
-
-	struct PlayerInfo {
-		public bool onDash;
-		public bool inputEnabled;
-		public bool attack;
-		public float moveSpeed;
-		public float accelerationTime;
-		public Vector3 velocity;
-
-		public PlayerInfo(bool _onDash, bool _inputEnabled, bool _attack, float _moveSpeed, float _accelerationTime, Vector3 _velocity){
-			onDash = _onDash;
-			inputEnabled = _inputEnabled;
-			attack = _attack;
-			moveSpeed = _moveSpeed;
-			accelerationTime = _accelerationTime;
-			velocity = _velocity;
-		}
 	}
 }

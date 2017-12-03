@@ -8,7 +8,7 @@ public class Enemy : LivingEntity {
 
 	Controller2D controller;
 	EnemyBehavior enemyBehavior;
-	EnemyInfo enemyInfo;
+	PlayerInfo enemyInfo;
 
 	public float moveSpeed = 20f;
 	float accelerationTime = .1f;
@@ -22,7 +22,7 @@ public class Enemy : LivingEntity {
 	void Start () {
 		controller = GetComponent<Controller2D>();
 		enemyBehavior = GetComponent<EnemyBehavior>();
-		enemyInfo = new EnemyInfo(moveSpeed, accelerationTime, Vector3.zero);
+		enemyInfo = new PlayerInfo(false, true, false, moveSpeed, accelerationTime, Vector3.zero);
 		players = new List<Transform>();
 		GameObject[] playersGameObject = GameObject.FindGameObjectsWithTag("Player");
 		foreach(GameObject player in playersGameObject){
@@ -32,7 +32,7 @@ public class Enemy : LivingEntity {
 	
 	// Update is called once per frame
 	void Update () {
-		enemyBehavior.NextMovement(ref input);
+		enemyBehavior.NextMovement(ref input, ref enemyInfo);
 	}
 	
 	void FixedUpdate(){
@@ -41,17 +41,5 @@ public class Enemy : LivingEntity {
 		enemyInfo.velocity.x = Mathf.SmoothDamp(enemyInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, enemyInfo.accelerationTime);
 		enemyInfo.velocity.y = Mathf.SmoothDamp(enemyInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, enemyInfo.accelerationTime);
 		controller.Move(enemyInfo.velocity * Time.deltaTime, input);
-	}
-
-	struct EnemyInfo {
-		public float moveSpeed;
-		public float accelerationTime;
-		public Vector3 velocity;
-
-		public EnemyInfo(float _moveSpeed, float _accelerationTime, Vector3 _velocity){
-			moveSpeed = _moveSpeed;
-			accelerationTime = _accelerationTime;
-			velocity = _velocity;
-		}
 	}
 }
