@@ -698,6 +698,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
+        type: 2}
+      propertyPath: dashSpeedMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
+        type: 2}
+      propertyPath: dashTime
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
   m_IsPrefabParent: 0
@@ -1079,6 +1089,16 @@ Prefab:
     - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604960261027828, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: dashSpeedMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604960261027828, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: dashTime
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
