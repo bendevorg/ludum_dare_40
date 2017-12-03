@@ -9,6 +9,7 @@ public class Controller2D : MonoBehaviour {
 
 	Rigidbody2D rb;
 	BoxCollider2D collider;
+	Animator animator;
 	[HideInInspector]
 	public PlayerInfo playerInfo;
 
@@ -18,6 +19,7 @@ public class Controller2D : MonoBehaviour {
 	float accelerationTime = .1f;
 
 	public Vector2 playerInput;
+
 
 	public float dashSpeedMultiplier = 40f;
 	public float dashTime = .25f;
@@ -32,15 +34,27 @@ public class Controller2D : MonoBehaviour {
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
 	}
 
-	void Start(){
+	void Start() {
 		rb = GetComponent<Rigidbody2D>();
 		collider = GetComponent<BoxCollider2D>();
+		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
-	public void Move(Vector2 moveAmount, Vector2 input){
+	public void Move(Vector2 moveAmount, Vector2 input) {
 		rb.MovePosition(rb.position + moveAmount);
 		playerInput = input;
+
+		//	Update animation
+		animator.SetFloat("inputX", input.x);
+		animator.SetFloat("inputY", input.y);
+		if (input.x != 0 || input.y != 0) {
+			animator.SetBool("isWalking", true);
+			animator.SetFloat("lastInputX", input.x);
+			animator.SetFloat("lastInputY", input.y);
+		} else {
+			animator.SetBool("isWalking", false);
+		}
 	}	
 
 	public void Dash(ref PlayerInfo playerInfo){
