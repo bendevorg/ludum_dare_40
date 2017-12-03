@@ -34,17 +34,27 @@ public class EnemyBehavior : MonoBehaviour {
 		} else if (controller.playerInfo.onZhonya){
 			controller.Zhonya();
 		} else if (controller.playerInfo.onFreeze){
-			controller.Zhonya();
+			controller.Freeze();
 		}
 
 		if(controller.playerInfo.inputEnabled){
 
 			if (dangerZone){
 				if (!controller.playerInfo.onDash) {
-					controller.Dash();
+					for (int i = 0; i < controller.powerups.Length; i++){
+						if (controller.powerups[i] == Controller2D.Powerups.Dash){
+							controller.UsePowerup(i);
+							break;
+						}
+					}
 				}
 				if (!controller.playerInfo.onZhonya) {
-					controller.Zhonya();
+					for (int i = 0; i < controller.powerups.Length; i++){
+						if (controller.powerups[i] == Controller2D.Powerups.Zhonya){
+							controller.UsePowerup(i);
+							break;
+						}
+					}
 				}
 			}
 

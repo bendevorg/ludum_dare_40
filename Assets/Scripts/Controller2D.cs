@@ -22,10 +22,10 @@ public class Controller2D : MonoBehaviour {
 	List<Controller2D> otherPlayers;
 
 	public enum Powerups {None = -1, Dash = 0, Zhonya = 1, Freeze = 2};
-	Powerups[] powerups = new Powerups[] {Powerups.None, Powerups.None};
+	public Powerups[] powerups = new Powerups[] {Powerups.None, Powerups.None};
 
-	public float dashSpeedMultiplier = 40f;
-	public float dashTime = .25f;
+	public float dashSpeedMultiplier = 2.5f;
+	public float dashTime = .75f;
 	float dashTimeRemaining;
 
 	public float zhonyaTime = 2f;
