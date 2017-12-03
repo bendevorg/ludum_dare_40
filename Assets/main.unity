@@ -400,72 +400,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1001 &846644311
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692913245337298, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_Name
-      value: RivaldinhoV2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: playerMask.m_Bits
-      value: 768
-      objectReference: {fileID: 0}
-    - target: {fileID: 114191071241262760, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: moveSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: raycastCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: map
-      value: 
-      objectReference: {fileID: 355707139}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &872455478
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +870,26 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: b4981b84896644fac8a56bbe1e8a5871, type: 2}
+    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: playerMask.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: raycastCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 355707139}
+    - target: {fileID: 114191071241262760, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
   m_IsPrefabParent: 0
