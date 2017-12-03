@@ -172,4 +172,11 @@ public class Controller2D : MonoBehaviour {
 		playerInfo.accelerationTime = accelerationTime;
 	}
 
+	void OnTriggerEnter2D(Collider2D collider){
+		if (collider.tag == "Powerup"){
+			Debug.Log("Receive Powerup");
+			Destroy(collider.gameObject);
+		}
+	}
+
 }
