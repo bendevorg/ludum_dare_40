@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114045194874139120}
   - component: {fileID: 58485746956249144}
   - component: {fileID: 95203907795355004}
+  - component: {fileID: 114625967380589680}
   m_Layer: 8
   m_Name: b4e
   m_TagString: Player
@@ -187,6 +188,20 @@ MonoBehaviour:
   zhonyaDrawbackTime: 2
   userFreezeTime: 3
   freezeTime: 3
+--- !u!114 &114625967380589680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692913245337298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28e83cb26db84e3889d8af7e0ccdfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  driveTexts:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &212837595218589060
 SpriteRenderer:
   m_ObjectHideFlags: 1

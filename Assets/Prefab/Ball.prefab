@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpeedIncrementOnBounce: 0.05
   ballMinSpeed: 1.5
-  ballMaxSpeed: 25
+  ballMaxSpeed: 20
   hitWall: {fileID: 8300000, guid: 6080ba3e7d73e6245ba5c2f1b4dc9d93, type: 3}
 --- !u!212 &212273464016342258
 SpriteRenderer:
