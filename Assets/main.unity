@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 355707141}
   - component: {fileID: 355707140}
   - component: {fileID: 355707139}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,13 +236,13 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 355707138}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0000000013969839, y: -0.000000006519258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -253,7 +253,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 0.99999994}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!23 &355707140
 MeshRenderer:
@@ -371,12 +371,100 @@ Transform:
   m_Father: {fileID: 451931319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719461412 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1903410242734074, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1100222632}
 --- !u!114 &719461414 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
     type: 2}
   m_PrefabInternal: {fileID: 1100222632}
   m_Script: {fileID: 11500000, guid: de3d7b96a770d4a069f0fa21e2dae3da, type: 3}
+--- !u!95 &719461417
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 719461412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b76abdb3c2194c95bcd98d5b0e2ba86, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1001 &846644311
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692913245337298, guid: 842771241221944888b8c8491c5d7446, type: 2}
+      propertyPath: m_Name
+      value: RivaldinhoV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: playerMask.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 114191071241262760, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: raycastCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114017821435270056, guid: 842771241221944888b8c8491c5d7446,
+        type: 2}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 355707139}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &872455478
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +476,7 @@ GameObject:
   - component: {fileID: 872455482}
   - component: {fileID: 872455481}
   - component: {fileID: 872455480}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_Top
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -485,7 +573,7 @@ GameObject:
   - component: {fileID: 1064603781}
   - component: {fileID: 1064603780}
   - component: {fileID: 1064603779}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_Bottom
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -665,66 +753,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1430516888
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4759721392072206, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692913245337298, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_Name
-      value: RivaldinhoV2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692913245337298, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114045194874139120, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114191071241262760, guid: 842771241221944888b8c8491c5d7446,
-        type: 2}
-      propertyPath: ball
-      value: 
-      objectReference: {fileID: 1448238418}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1448238413
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498c4cb5934db4dbcb7a268810e3af99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeedIncrementOnBounce: 1
+  ballSpeedIncrementOnBounce: 0.05
   ballMinSpeed: 1.5
   ballMaxSpeed: 25
 --- !u!1 &1840366636
@@ -861,7 +889,7 @@ GameObject:
   - component: {fileID: 1840366640}
   - component: {fileID: 1840366639}
   - component: {fileID: 1840366638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_Right
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -958,7 +986,7 @@ GameObject:
   - component: {fileID: 1916318018}
   - component: {fileID: 1916318017}
   - component: {fileID: 1916318016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall_Left
   m_TagString: Wall
   m_Icon: {fileID: 0}

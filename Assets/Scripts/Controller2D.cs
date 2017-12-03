@@ -23,6 +23,5 @@ public class Controller2D : MonoBehaviour {
 		//	Update animation
 		animator.SetFloat("velocityX", input.x);
 		animator.SetFloat("velocityY", input.y);
-	}
-	
+	}	
 }
