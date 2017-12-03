@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerUI))]
 public class Controller2D : MonoBehaviour {
 
 	Rigidbody2D rb;
@@ -12,6 +13,7 @@ public class Controller2D : MonoBehaviour {
 	Animator animator;
 	[HideInInspector]
 	public PlayerInfo playerInfo;
+	PlayerUI playerUI;
 
 	SpriteRenderer spriteRenderer;
 
@@ -22,6 +24,7 @@ public class Controller2D : MonoBehaviour {
 	List<Controller2D> otherPlayers;
 
 	public enum Powerups {None = -1, Dash = 0, Zhonya = 1, Freeze = 2};
+	string[] powerupNames = new string[]{"None", "Dash", "Zhonya", "Freeze"};
 	public Powerups[] powerups = new Powerups[] {Powerups.None, Powerups.None};
 
 	public float dashSpeedMultiplier = 2.5f;
@@ -47,6 +50,7 @@ public class Controller2D : MonoBehaviour {
 		collider = GetComponent<BoxCollider2D>();
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		playerUI = GetComponent<PlayerUI>();
 
 		otherPlayers = new List<Controller2D>();
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -74,20 +78,29 @@ public class Controller2D : MonoBehaviour {
 	}	
 
 	public void UsePowerup(int usedPowerup){
+		Debug.Log(powerups[usedPowerup]);
 		switch(powerups[usedPowerup]){
 			case Powerups.Dash:
-				Dash();
+				if (Mathf.Abs(playerInfo.input.x) + Mathf.Abs(playerInfo.input.y) > 0){
+					Debug.Log("Agora desliga");
+					Dash();
+					playerUI.SetDriveText(usedPowerup, powerupNames[0]);
+					powerups[usedPowerup] = Powerups.None;
+				}
 				break;
 			case Powerups.Zhonya:
 				Zhonya();
+				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
+				powerups[usedPowerup] = Powerups.None;
 				break;
 			case Powerups.Freeze:
 				Freeze();
+				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
+				powerups[usedPowerup] = Powerups.None;
 				break;
 			default:
 				break;
 		}
-		powerups[usedPowerup] = Powerups.None;
 	}
 
 	public void Dash(){
@@ -152,6 +165,7 @@ public class Controller2D : MonoBehaviour {
 			userFreezeTimeRemaining += Time.deltaTime;
 		} else if (freezeTimeRemaining < freezeTime){
 			if (!playerInfo.inputEnabled){
+				playerInfo.onFreeze = false;
 				RecoverMovement();
 				Color defaultColor = new Color(255f, 255f, 255f, 1f);
 				ChangeColor(defaultColor);
@@ -167,7 +181,6 @@ public class Controller2D : MonoBehaviour {
 			}
 			freezeTimeRemaining += Time.deltaTime;
 		} else {
-			playerInfo.onFreeze = false;
 			Color defaultColor = new Color(255f, 255f, 255f, 1f);
 			foreach(Controller2D enemy in otherPlayers){
 				if (enemy == null){
@@ -201,13 +214,17 @@ public class Controller2D : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider){
 		if (collider.tag == "Powerup"){
 			int newPowerup = collider.GetComponent<PowerUp>().GetPowerup();
+			Debug.Log(newPowerup);
 			//	TODO: Redo this to be more flexible
 			if (powerups[0] == Powerups.None){
 				powerups[0] = (Powerups)newPowerup;
+				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
 			} else if(powerups[1] == Powerups.None){
 				powerups[1] = (Powerups)newPowerup;
+				playerUI.SetDriveText(1, powerupNames[newPowerup + 1]);
 			} else {
 				powerups[0] = (Powerups)newPowerup;
+				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
 			}
 			Destroy(collider.gameObject);
 		}

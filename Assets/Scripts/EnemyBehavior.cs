@@ -85,6 +85,7 @@ public class EnemyBehavior : MonoBehaviour {
 			}
 
 			input = perpendicularDirection.normalized;
+			controller.playerInfo.input = input;
 		}
 	}
 

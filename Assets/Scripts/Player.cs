@@ -21,7 +21,7 @@ public class Player : LivingEntity {
 	// Update is called once per frame
 	void Update () {
 
-		if (controller.playerInfo.onDash && (Mathf.Abs(input.x) + Mathf.Abs(input.y) != 0)){
+		if (controller.playerInfo.onDash){
 			controller.Dash();	
 		} else if(controller.playerInfo.onZhonya){
 			controller.Zhonya();
@@ -32,7 +32,7 @@ public class Player : LivingEntity {
 		if (controller.playerInfo.inputEnabled){
 			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
-
+			controller.playerInfo.input = input;
 			if (Input.GetKeyDown(KeyCode.Z)){
 				controller.UsePowerup(0);
 			} else if (Input.GetKeyDown(KeyCode.X)){
