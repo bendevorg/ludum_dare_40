@@ -28,23 +28,46 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public void NextMovement(ref Vector2 input, ref PlayerInfo enemyInfo){
 
+		// Wait for dash to end
+		if (enemyInfo.onDash){
+			controller.Dash(ref enemyInfo);
+		}
+
 		if (dangerZone){
-			Debug.Log("Top term");
 			if (!enemyInfo.onDash){
-				Debug.Log("Olha que bosta");
 				controller.Dash(ref enemyInfo);
 			}
 		}
 
-		Vector2 perpendicularDirection = ball.velocity.Rotate(90f);
-		if ((Mathf.Sign(perpendicularDirection.x) > 0 && transform.position.x < ball.transform.position.x) ||
-			(Mathf.Sign(perpendicularDirection.x) < 0 && transform.position.x > ball.transform.position.x)){
-			perpendicularDirection.x *= -1;
-		} else if ((Mathf.Sign(perpendicularDirection.y) > 0 && transform.position.y < ball.transform.position.y) ||
-			(Mathf.Sign(perpendicularDirection.y) < 0 && transform.position.y > ball.transform.position.y)){
-			perpendicularDirection.y *= -1;
+		if(enemyInfo.inputEnabled){
+			Vector2 perpendicularDirection = ball.velocity.Rotate(90f);
+
+			if (Mathf.Sign(ball.velocity.x) == 1 && 
+				transform.position.x <= ball.transform.position.x && 
+				Mathf.Sign(perpendicularDirection.x) == 1){
+				perpendicularDirection.x *= -1;
+			}
+
+			if (Mathf.Sign(ball.velocity.x) == -1 && 
+				transform.position.x >= ball.transform.position.x && 
+				Mathf.Sign(perpendicularDirection.x) == -1){
+				perpendicularDirection.x *= -1;
+			}
+
+			if (Mathf.Sign(ball.velocity.y) == 1 && 
+				transform.position.y <= ball.transform.position.y && 
+				Mathf.Sign(perpendicularDirection.y) == 1){
+				perpendicularDirection.y *= -1;
+			}
+
+			if (Mathf.Sign(ball.velocity.y) == -1 && 
+				transform.position.y >= ball.transform.position.y && 
+				Mathf.Sign(perpendicularDirection.y) == -1){
+				perpendicularDirection.y *= -1;
+			}
+
+			input = perpendicularDirection.normalized;
 		}
-		input = perpendicularDirection.normalized;
 	}
 
 	public void UpdateRaycastOrigins(){

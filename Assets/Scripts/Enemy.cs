@@ -38,6 +38,7 @@ public class Enemy : LivingEntity {
 	void FixedUpdate(){
 		float targetVelocityX = input.x * enemyInfo.moveSpeed;
 		float targetVelocityY = input.y * enemyInfo.moveSpeed;
+		Debug.Log(enemyInfo.moveSpeed);
 		enemyInfo.velocity.x = Mathf.SmoothDamp(enemyInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, enemyInfo.accelerationTime);
 		enemyInfo.velocity.y = Mathf.SmoothDamp(enemyInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, enemyInfo.accelerationTime);
 		controller.Move(enemyInfo.velocity * Time.deltaTime, input);
