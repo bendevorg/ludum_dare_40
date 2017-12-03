@@ -78,11 +78,9 @@ public class Controller2D : MonoBehaviour {
 	}	
 
 	public void UsePowerup(int usedPowerup){
-		Debug.Log(powerups[usedPowerup]);
 		switch(powerups[usedPowerup]){
 			case Powerups.Dash:
 				if (Mathf.Abs(playerInfo.input.x) + Mathf.Abs(playerInfo.input.y) > 0){
-					Debug.Log("Agora desliga");
 					Dash();
 					playerUI.SetDriveText(usedPowerup, powerupNames[0]);
 					powerups[usedPowerup] = Powerups.None;
@@ -94,7 +92,7 @@ public class Controller2D : MonoBehaviour {
 				powerups[usedPowerup] = Powerups.None;
 				break;
 			case Powerups.Freeze:
-				Freeze();
+				StartCoroutine("Freeze");
 				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
 				powerups[usedPowerup] = Powerups.None;
 				break;
@@ -153,42 +151,44 @@ public class Controller2D : MonoBehaviour {
 		}
 	}
 
-	public void Freeze(){
-		if (!playerInfo.onFreeze){
-			playerInfo.onFreeze = true;
-			userFreezeTimeRemaining = 0f;
-			freezeTimeRemaining = 0f;
-			StopMovement();
-			Color color = new Color(0f, 0f, 255f, 0.7f);
-			ChangeColor(color);
-		} else if (userFreezeTimeRemaining < userFreezeTime){
+	IEnumerator Freeze(){
+		playerInfo.onFreeze = true;
+		userFreezeTimeRemaining = 0f;
+		StopMovement();
+		Color color = new Color(0f, 0f, 255f, 0.7f);
+		ChangeColor(color);
+
+		while (userFreezeTimeRemaining < userFreezeTime){
 			userFreezeTimeRemaining += Time.deltaTime;
-		} else if (freezeTimeRemaining < freezeTime){
-			if (!playerInfo.inputEnabled){
-				playerInfo.onFreeze = false;
-				RecoverMovement();
-				Color defaultColor = new Color(255f, 255f, 255f, 1f);
-				ChangeColor(defaultColor);
-				Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
-				foreach(Controller2D enemy in otherPlayers){
-					if (enemy == null){
-						otherPlayers.Remove(enemy);
-					} else {
-						enemy.StopMovement();
-						enemy.ChangeColor(frozenColor);
-					}
-				}
+			yield return new WaitForEndOfFrame();
+		}
+
+		playerInfo.onFreeze = false;
+		RecoverMovement();
+		Color defaultColor = new Color(255f, 255f, 255f, 1f);
+		ChangeColor(defaultColor);
+		Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
+		freezeTimeRemaining = 0f;
+		foreach(Controller2D enemy in otherPlayers){
+			if (enemy == null){
+				otherPlayers.Remove(enemy);
+			} else {
+				enemy.StopMovement();
+				enemy.ChangeColor(frozenColor);
 			}
+		}
+
+		while(freezeTimeRemaining < freezeTime){
 			freezeTimeRemaining += Time.deltaTime;
-		} else {
-			Color defaultColor = new Color(255f, 255f, 255f, 1f);
-			foreach(Controller2D enemy in otherPlayers){
-				if (enemy == null){
-					otherPlayers.Remove(enemy);
-				} else {
-					enemy.RecoverMovement();
-					enemy.ChangeColor(defaultColor);
-				}
+			yield return new WaitForEndOfFrame();
+		}
+
+		foreach(Controller2D enemy in otherPlayers){
+			if (enemy == null){
+				otherPlayers.Remove(enemy);
+			} else {
+				enemy.RecoverMovement();
+				enemy.ChangeColor(defaultColor);
 			}
 		}
 	}
@@ -214,7 +214,6 @@ public class Controller2D : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider){
 		if (collider.tag == "Powerup"){
 			int newPowerup = collider.GetComponent<PowerUp>().GetPowerup();
-			Debug.Log(newPowerup);
 			//	TODO: Redo this to be more flexible
 			if (powerups[0] == Powerups.None){
 				powerups[0] = (Powerups)newPowerup;

@@ -8,7 +8,7 @@ public class PowerUp : MonoBehaviour {
 	int powerUp;
 
 	void Start(){
-		powerUp = Random.Range(0, amountOfPowerups);
+		powerUp = Random.Range(2, 3);
 	}
 
 	public int GetPowerup(){

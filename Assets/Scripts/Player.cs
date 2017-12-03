@@ -25,8 +25,6 @@ public class Player : LivingEntity {
 			controller.Dash();	
 		} else if(controller.playerInfo.onZhonya){
 			controller.Zhonya();
-		} else if(controller.playerInfo.onFreeze){
-			controller.Freeze();
 		}
 		
 		if (controller.playerInfo.inputEnabled){
