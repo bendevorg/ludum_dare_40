@@ -20,6 +20,9 @@ public class EnemyBehavior : MonoBehaviour {
 	bool dangerZone = false;
 	Path path;
 
+	float timeToCatchPickup = 5f;
+	float timeToCatchPickupRemaining = 0;
+
 	//	Pathfinding
 	Seeker seeker;
 	// The max distance from the AI to a waypoint for it to continue to the next waypoint
@@ -70,23 +73,31 @@ public class EnemyBehavior : MonoBehaviour {
 					dangerZone = false;
 				}
 			}
-			if (!dangerZone && spawner.instantiatedPowerup != null ){
-				if (path != null && currentWaypoint < path.vectorPath.Count){
+			if (!dangerZone && spawner.instantiatedPowerup != null && timeToCatchPickupRemaining < timeToCatchPickup){
+				timeToCatchPickupRemaining += Time.deltaTime;
+				if (path != null){
 					if (currentWaypoint < path.vectorPath.Count){
 						// Direction to the next waypoint
 						direction = (path.vectorPath[currentWaypoint]-transform.position).normalized;
 						if (Vector2.Distance (transform.position,path.vectorPath[currentWaypoint]) < nextWaypointDistance) {
 								currentWaypoint++;
 						}
+					} else {
+						path = null;
 					}
-				} else {
+				} else{
 					seeker.StartPath(transform.position, spawner.instantiatedPowerup.transform.position, OnPathComplete);
 				}
 				//	Calculate path to powerup
 				//Vector2 powerupPosition = spawner.instantiatedPowerup.transform.position;
 
 				//direction = new Vector2(powerupPosition.x - transform.position.x, powerupPosition.y - transform.position.y);
-			} else if(!dangerZone){
+			} else {
+
+				//	Reset try to catch pickup
+				if (spawner.instantiatedPowerup == null){
+					timeToCatchPickupRemaining = 0f;
+				}
 				direction = ball.velocity.Rotate(90f);
 
 				if (Mathf.Sign(ball.velocity.x) == 1 && 
