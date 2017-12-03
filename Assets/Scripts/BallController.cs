@@ -9,8 +9,14 @@ public class BallController : MonoBehaviour {
 	public float ballSpeedIncrementOnBounce = 1f;
 	public float ballMinSpeed = 1.5f;
 	public float ballMaxSpeed = 25f;
+    public AudioClip hitWall;
 
-	float directionX;
+
+    private AudioSource source;
+    private float lowPitchRange = .50F;
+    private float highPitchRange = .85F;
+    private float velToVol = .025F;
+    float directionX;
 	float directionY;
 
 	// Use this for initialization
@@ -23,7 +29,8 @@ public class BallController : MonoBehaviour {
 		initialVelocity.x = initialVelocity.x>initialVelocity.y?ballMinSpeed * directionX:(initialVelocity.x/initialVelocity.y) * directionX;
 		initialVelocity.y = initialVelocity.y>initialVelocity.x?ballMinSpeed * directionY:(initialVelocity.y/initialVelocity.x) * directionX;
 		rb.velocity = initialVelocity;
-	}
+        source = GetComponent<AudioSource>();
+    }
 
 	Vector2 CalculateBallVelocity(float speedIncrementPercentage){
 		Vector2 newVelocity = rb.velocity * (1 + speedIncrementPercentage);
@@ -39,7 +46,10 @@ public class BallController : MonoBehaviour {
 			rb.velocity = CalculateBallVelocity(ballSpeedIncrementOnBounce);
 			float forward = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0f, 0f, forward);
-		} else if (other.collider.tag == "Player"){
+            source.pitch = Random.Range(lowPitchRange, highPitchRange);
+            float hitVol = other.relativeVelocity.magnitude * velToVol;
+            source.PlayOneShot(hitWall, hitVol);
+        } else if (other.collider.tag == "Player"){
 			other.collider.GetComponent<LivingEntity>().TakeDamage(999);
 		}
 	}
