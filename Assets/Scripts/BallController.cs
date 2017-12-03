@@ -23,7 +23,6 @@ public class BallController : MonoBehaviour {
 		initialVelocity.x = initialVelocity.x>initialVelocity.y?ballMinSpeed * directionX:(initialVelocity.x/initialVelocity.y) * directionX;
 		initialVelocity.y = initialVelocity.y>initialVelocity.x?ballMinSpeed * directionY:(initialVelocity.y/initialVelocity.x) * directionX;
 		rb.velocity = initialVelocity;
-		Debug.Log(rb.velocity);
 	}
 
 	Vector2 CalculateBallVelocity(float speedIncrementPercentage){
