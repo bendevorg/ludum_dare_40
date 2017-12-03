@@ -712,10 +712,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1903410242734074, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
-      propertyPath: m_Name
-      value: b0b
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
   m_IsPrefabParent: 0
@@ -970,10 +966,6 @@ Prefab:
       propertyPath: map
       value: 
       objectReference: {fileID: 355707139}
-    - target: {fileID: 1692913245337298, guid: 842771241221944888b8c8491c5d7446, type: 2}
-      propertyPath: m_Name
-      value: RivaldinhoV2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 842771241221944888b8c8491c5d7446, type: 2}
   m_IsPrefabParent: 0
