@@ -213,4 +213,20 @@ public class Controller2D : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D other) {
+		if (other.collider.tag == "Enemy" && playerInfo.attack){
+			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
+		} else if (other.collider.tag == "Wall" && playerInfo.onDash){
+			transform.GetComponent<LivingEntity>().TakeDamage(99999);
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D other) {
+		if (other.collider.tag == "Enemy" && playerInfo.attack){
+			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
+		} //else if (other.collider.tag == "Wall" && playerInfo.onDash){
+			//transform.GetComponent<LivingEntity>().TakeDamage(99999);
+		//}
+	}
+
 }

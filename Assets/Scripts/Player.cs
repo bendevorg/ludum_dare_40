@@ -48,20 +48,4 @@ public class Player : LivingEntity {
 		controller.playerInfo.velocity.y = Mathf.SmoothDamp(controller.playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, controller.playerInfo.accelerationTime);
 		controller.Move(controller.playerInfo.velocity * Time.deltaTime, input);
 	}
-
-	void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Enemy" && controller.playerInfo.attack){
-			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
-		} else if (other.collider.tag == "Wall" && controller.playerInfo.onDash){
-			transform.GetComponent<LivingEntity>().TakeDamage(99999);
-		}
-	}
-
-	void OnCollisionStay2D(Collision2D other) {
-		if (other.collider.tag == "Enemy" && controller.playerInfo.attack){
-			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
-		} //else if (other.collider.tag == "Wall" && playerInfo.onDash){
-			//transform.GetComponent<LivingEntity>().TakeDamage(99999);
-		//}
-	}
 }
