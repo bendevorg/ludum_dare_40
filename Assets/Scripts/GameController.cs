@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour {
 
 	public static GameController gameController = null;
 
+	public GameObject gameOverUI;
+	public GameObject pauseUI;
+
 	void Awake(){
 		if(gameController != null){
 			Destroy(gameObject);
@@ -14,6 +17,11 @@ public class GameController : MonoBehaviour {
 			gameController = this;
 			DontDestroyOnLoad(gameObject);
 		}
+	}
+
+	void Start(){
+		gameOverUI.SetActive(false);
+		pauseUI.SetActive(false);
 	}
 
 	void Update(){
@@ -24,6 +32,7 @@ public class GameController : MonoBehaviour {
 
 	void PauseGame(){
 		Time.timeScale = 1 - Time.timeScale;
+		pauseUI.SetActive(!pauseUI.activeSelf);
 	}
 
 	public void LoadScene(int scene){
