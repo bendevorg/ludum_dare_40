@@ -221,12 +221,12 @@ Prefab:
     - target: {fileID: 224805725037658826, guid: 926d2051db243495ea5c963a95e1f664,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 614
+      value: 358.5
       objectReference: {fileID: 0}
     - target: {fileID: 224805725037658826, guid: 926d2051db243495ea5c963a95e1f664,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 345.5
+      value: 158.5
       objectReference: {fileID: 0}
     - target: {fileID: 224805725037658826, guid: 926d2051db243495ea5c963a95e1f664,
         type: 2}
@@ -1911,6 +1911,10 @@ Prefab:
         type: 2}
       propertyPath: pixelPerfect
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114891426004436, guid: 6ceeb0b60f0674e30a1a9e6be627a656, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ceeb0b60f0674e30a1a9e6be627a656, type: 2}

@@ -172,14 +172,14 @@ public class Controller2D : MonoBehaviour {
 
 		playerInfo.onFreeze = false;
 		RecoverMovement();
-		Color defaultColor = new Color(255f, 255f, 255f, 1f);
+        source.PlayOneShot(freeze, 1);
+        Color defaultColor = new Color(255f, 255f, 255f, 1f);
 		ChangeColor(defaultColor);
 		Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
 		freezeTimeRemaining = 0f;
 		foreach(Controller2D enemy in otherPlayers){
 			if (enemy != null){
 				enemy.StopMovement();
-                source.PlayOneShot(freeze, 1);
                 enemy.ChangeColor(frozenColor);
 			}
 		}
