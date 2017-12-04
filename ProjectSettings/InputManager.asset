@@ -294,7 +294,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: Drive2_Player2
+    m_Name: Drive2_Player1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
