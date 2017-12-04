@@ -42,7 +42,6 @@ public class Spawner : MonoBehaviour {
 			float spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
 
 			while(Physics.Raycast(new Vector3(spawnX, spawnY, -10f), Vector3.forward, 10f, wallMask)){
-				Debug.Log("Hit");
 				spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
 				spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
 			}
