@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114920527843579584}
   - component: {fileID: 82572667907950426}
   m_Layer: 8
-  m_Name: b1l
+  m_Name: b1ll
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  player: 2
 --- !u!114 &114771862402521258
 MonoBehaviour:
   m_ObjectHideFlags: 1
