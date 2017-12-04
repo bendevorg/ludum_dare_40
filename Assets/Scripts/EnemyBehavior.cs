@@ -94,6 +94,13 @@ public class EnemyBehavior : MonoBehaviour {
 				//direction = new Vector2(powerupPosition.x - transform.position.x, powerupPosition.y - transform.position.y);
 			} else {
 
+				for (int i = 0; i < controller.powerups.Length; i++){
+					if (controller.powerups[i] == Controller2D.Powerups.Freeze){
+						if (Random.Range((int)1, (int)100000) < 10)
+							controller.UsePowerup(i);
+					}
+				}
+
 				//	Reset try to catch pickup
 				if (spawner.instantiatedPowerup == null){
 					timeToCatchPickupRemaining = 0f;
