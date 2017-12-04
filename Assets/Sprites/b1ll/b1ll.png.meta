@@ -1,69 +1,69 @@
 fileFormatVersion: 2
-guid: 4cbeabc86f9544a02ba10cbe9ae13207
-timeCreated: 1512347656
+guid: 3d0958632f2694f5a9b1806a394fbe10
+timeCreated: 1512348305
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: b0b 0
-    21300002: b0b 1
-    21300004: b0b 2
-    21300006: b0b 3
-    21300008: b0b 4
-    21300010: b0b 5
-    21300012: b0b 6
-    21300014: b0b 7
-    21300016: b0b 8
-    21300018: b0b 9
-    21300020: b0b 10
-    21300022: b0b 11
-    21300024: b0b 12
-    21300026: b0b 13
-    21300028: b0b 14
-    21300030: b0b 15
-    21300032: b0b 16
-    21300034: b0b 17
-    21300036: b0b 18
-    21300038: b0b 19
-    21300040: b0b 20
-    21300042: b0b 21
-    21300044: b0b 22
-    21300046: b0b 23
-    21300048: b0b 24
-    21300050: b0b 25
-    21300052: b0b 26
-    21300054: b0b 27
-    21300056: b0b 28
-    21300058: b0b 29
-    21300060: b0b 30
-    21300062: b0b 31
-    21300064: b0b 32
-    21300066: b0b 33
-    21300068: b0b 34
-    21300070: b0b 35
-    21300072: b0b 36
-    21300074: b0b 37
-    21300076: b0b 38
-    21300078: b0b 39
-    21300080: b0b 40
-    21300082: b0b 41
-    21300084: b0b 42
-    21300086: b0b 43
-    21300088: b0b 44
-    21300090: b0b 45
-    21300092: b0b 46
-    21300094: b0b 47
-    21300096: b0b 48
-    21300098: b0b 49
-    21300100: b0b 50
-    21300102: b0b 51
-    21300104: b0b 52
-    21300106: b0b 53
-    21300108: b0b 54
-    21300110: b0b 55
-    21300112: b0b 56
-    21300114: b0b 57
-    21300116: b0b 58
-    21300118: b0b 59
+    21300000: b1ll 0
+    21300002: b1ll 1
+    21300004: b1ll 2
+    21300006: b1ll 3
+    21300008: b1ll 4
+    21300010: b1ll 5
+    21300012: b1ll 6
+    21300014: b1ll 7
+    21300016: b1ll 8
+    21300018: b1ll 9
+    21300020: b1ll 10
+    21300022: b1ll 11
+    21300024: b1ll 12
+    21300026: b1ll 13
+    21300028: b1ll 14
+    21300030: b1ll 15
+    21300032: b1ll 16
+    21300034: b1ll 17
+    21300036: b1ll 18
+    21300038: b1ll 19
+    21300040: b1ll 20
+    21300042: b1ll 21
+    21300044: b1ll 22
+    21300046: b1ll 23
+    21300048: b1ll 24
+    21300050: b1ll 25
+    21300052: b1ll 26
+    21300054: b1ll 27
+    21300056: b1ll 28
+    21300058: b1ll 29
+    21300060: b1ll 30
+    21300062: b1ll 31
+    21300064: b1ll 32
+    21300066: b1ll 33
+    21300068: b1ll 34
+    21300070: b1ll 35
+    21300072: b1ll 36
+    21300074: b1ll 37
+    21300076: b1ll 38
+    21300078: b1ll 39
+    21300080: b1ll 40
+    21300082: b1ll 41
+    21300084: b1ll 42
+    21300086: b1ll 43
+    21300088: b1ll 44
+    21300090: b1ll 45
+    21300092: b1ll 46
+    21300094: b1ll 47
+    21300096: b1ll 48
+    21300098: b1ll 49
+    21300100: b1ll 50
+    21300102: b1ll 51
+    21300104: b1ll 52
+    21300106: b1ll 53
+    21300108: b1ll 54
+    21300110: b1ll 55
+    21300112: b1ll 56
+    21300114: b1ll 57
+    21300116: b1ll 58
+    21300118: b1ll 59
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -125,20 +125,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
-    maxTextureSize: 512
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: b0b 0
+      name: b1ll 0
       rect:
         serializedVersion: 2
         x: 0
@@ -152,7 +143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 1
+      name: b1ll 1
       rect:
         serializedVersion: 2
         x: 64
@@ -166,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 2
+      name: b1ll 2
       rect:
         serializedVersion: 2
         x: 128
@@ -180,7 +171,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 3
+      name: b1ll 3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,7 +185,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 4
+      name: b1ll 4
       rect:
         serializedVersion: 2
         x: 256
@@ -208,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 5
+      name: b1ll 5
       rect:
         serializedVersion: 2
         x: 320
@@ -222,7 +213,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 6
+      name: b1ll 6
       rect:
         serializedVersion: 2
         x: 384
@@ -236,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 7
+      name: b1ll 7
       rect:
         serializedVersion: 2
         x: 448
@@ -250,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 8
+      name: b1ll 8
       rect:
         serializedVersion: 2
         x: 0
@@ -264,7 +255,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 9
+      name: b1ll 9
       rect:
         serializedVersion: 2
         x: 64
@@ -278,7 +269,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 10
+      name: b1ll 10
       rect:
         serializedVersion: 2
         x: 128
@@ -292,7 +283,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 11
+      name: b1ll 11
       rect:
         serializedVersion: 2
         x: 192
@@ -306,7 +297,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 12
+      name: b1ll 12
       rect:
         serializedVersion: 2
         x: 256
@@ -320,7 +311,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 13
+      name: b1ll 13
       rect:
         serializedVersion: 2
         x: 320
@@ -334,7 +325,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 14
+      name: b1ll 14
       rect:
         serializedVersion: 2
         x: 384
@@ -348,7 +339,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 15
+      name: b1ll 15
       rect:
         serializedVersion: 2
         x: 448
@@ -362,7 +353,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 16
+      name: b1ll 16
       rect:
         serializedVersion: 2
         x: 0
@@ -376,7 +367,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 17
+      name: b1ll 17
       rect:
         serializedVersion: 2
         x: 64
@@ -390,7 +381,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 18
+      name: b1ll 18
       rect:
         serializedVersion: 2
         x: 128
@@ -404,7 +395,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 19
+      name: b1ll 19
       rect:
         serializedVersion: 2
         x: 192
@@ -418,7 +409,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 20
+      name: b1ll 20
       rect:
         serializedVersion: 2
         x: 256
@@ -432,7 +423,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 21
+      name: b1ll 21
       rect:
         serializedVersion: 2
         x: 320
@@ -446,7 +437,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 22
+      name: b1ll 22
       rect:
         serializedVersion: 2
         x: 384
@@ -460,7 +451,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 23
+      name: b1ll 23
       rect:
         serializedVersion: 2
         x: 448
@@ -474,7 +465,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 24
+      name: b1ll 24
       rect:
         serializedVersion: 2
         x: 0
@@ -488,7 +479,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 25
+      name: b1ll 25
       rect:
         serializedVersion: 2
         x: 64
@@ -502,7 +493,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 26
+      name: b1ll 26
       rect:
         serializedVersion: 2
         x: 128
@@ -516,7 +507,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 27
+      name: b1ll 27
       rect:
         serializedVersion: 2
         x: 192
@@ -530,7 +521,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 28
+      name: b1ll 28
       rect:
         serializedVersion: 2
         x: 256
@@ -544,7 +535,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 29
+      name: b1ll 29
       rect:
         serializedVersion: 2
         x: 320
@@ -558,7 +549,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 30
+      name: b1ll 30
       rect:
         serializedVersion: 2
         x: 384
@@ -572,7 +563,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 31
+      name: b1ll 31
       rect:
         serializedVersion: 2
         x: 448
@@ -586,7 +577,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 32
+      name: b1ll 32
       rect:
         serializedVersion: 2
         x: 0
@@ -600,7 +591,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 33
+      name: b1ll 33
       rect:
         serializedVersion: 2
         x: 64
@@ -614,7 +605,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 34
+      name: b1ll 34
       rect:
         serializedVersion: 2
         x: 128
@@ -628,7 +619,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 35
+      name: b1ll 35
       rect:
         serializedVersion: 2
         x: 192
@@ -642,7 +633,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 36
+      name: b1ll 36
       rect:
         serializedVersion: 2
         x: 256
@@ -656,7 +647,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 37
+      name: b1ll 37
       rect:
         serializedVersion: 2
         x: 320
@@ -670,7 +661,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 38
+      name: b1ll 38
       rect:
         serializedVersion: 2
         x: 384
@@ -684,7 +675,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 39
+      name: b1ll 39
       rect:
         serializedVersion: 2
         x: 448
@@ -698,7 +689,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 40
+      name: b1ll 40
       rect:
         serializedVersion: 2
         x: 0
@@ -712,7 +703,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 41
+      name: b1ll 41
       rect:
         serializedVersion: 2
         x: 64
@@ -726,7 +717,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 42
+      name: b1ll 42
       rect:
         serializedVersion: 2
         x: 128
@@ -740,7 +731,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 43
+      name: b1ll 43
       rect:
         serializedVersion: 2
         x: 192
@@ -754,7 +745,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 44
+      name: b1ll 44
       rect:
         serializedVersion: 2
         x: 256
@@ -768,7 +759,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 45
+      name: b1ll 45
       rect:
         serializedVersion: 2
         x: 320
@@ -782,7 +773,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 46
+      name: b1ll 46
       rect:
         serializedVersion: 2
         x: 384
@@ -796,7 +787,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 47
+      name: b1ll 47
       rect:
         serializedVersion: 2
         x: 448
@@ -810,7 +801,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 48
+      name: b1ll 48
       rect:
         serializedVersion: 2
         x: 0
@@ -824,7 +815,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 49
+      name: b1ll 49
       rect:
         serializedVersion: 2
         x: 64
@@ -838,7 +829,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 50
+      name: b1ll 50
       rect:
         serializedVersion: 2
         x: 128
@@ -852,7 +843,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 51
+      name: b1ll 51
       rect:
         serializedVersion: 2
         x: 192
@@ -866,7 +857,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 52
+      name: b1ll 52
       rect:
         serializedVersion: 2
         x: 256
@@ -880,7 +871,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 53
+      name: b1ll 53
       rect:
         serializedVersion: 2
         x: 320
@@ -894,7 +885,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 54
+      name: b1ll 54
       rect:
         serializedVersion: 2
         x: 384
@@ -908,7 +899,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 55
+      name: b1ll 55
       rect:
         serializedVersion: 2
         x: 448
@@ -922,7 +913,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 56
+      name: b1ll 56
       rect:
         serializedVersion: 2
         x: 0
@@ -936,7 +927,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 57
+      name: b1ll 57
       rect:
         serializedVersion: 2
         x: 64
@@ -950,7 +941,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 58
+      name: b1ll 58
       rect:
         serializedVersion: 2
         x: 128
@@ -964,7 +955,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: b0b 59
+      name: b1ll 59
       rect:
         serializedVersion: 2
         x: 192
