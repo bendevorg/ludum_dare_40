@@ -19,9 +19,8 @@ public class LivingEntity : MonoBehaviour {
 
 	void Death(){
 		if (OnDeath != null){
-				OnDeath();
+			OnDeath();
 		};
 		GameObject.Destroy(gameObject);
 	}
-
 }

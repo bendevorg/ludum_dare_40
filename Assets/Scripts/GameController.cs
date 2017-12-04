@@ -7,8 +7,11 @@ public class GameController : MonoBehaviour {
 
 	public static GameController gameController = null;
 
+	public GameObject menuUI;
 	public GameObject gameOverUI;
 	public GameObject pauseUI;
+
+	List<LivingEntity> players;
 
 	void Awake(){
 		if(gameController != null){
@@ -20,6 +23,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start(){
+		SceneManager.activeSceneChanged += GetPlayers;
+		menuUI.SetActive(true);
 		gameOverUI.SetActive(false);
 		pauseUI.SetActive(false);
 	}
@@ -30,20 +35,50 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	void GetPlayers(Scene fromScene, Scene toScene){
+		players = new List<LivingEntity>();
+		GameObject[] playersGameObjects = GameObject.FindGameObjectsWithTag("Player");
+		foreach(GameObject player in playersGameObjects){
+			LivingEntity playerLivingEntity = player.GetComponent<LivingEntity>();
+			playerLivingEntity.OnDeath += PlayerDeath;
+			players.Add(playerLivingEntity);
+		}
+	}
+
+	void PlayerDeath(){
+		players.RemoveAt(0);
+		if (players.Count <= 1){
+			Time.timeScale = 0;
+			GameOver();
+		}
+	}
+
+	void GameOver(){
+		gameOverUI.SetActive(true);
+		Time.timeScale = 0;
+	}
+
 	void PauseGame(){
 		Time.timeScale = 1 - Time.timeScale;
 		pauseUI.SetActive(!pauseUI.activeSelf);
 	}
 
 	public void LoadScene(int scene){
+		ResetUI();
+		if (scene == 0){
+			menuUI.SetActive(true);
+		}
+		Time.timeScale = 1;
 		SceneManager.LoadScene(scene);
 	}
 
 	public void RestartScene(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
-	public void GameOver(){
-
+	void ResetUI(){
+		menuUI.SetActive(false);
+		gameOverUI.SetActive(false);
+		pauseUI.SetActive(false);
 	}
 }
