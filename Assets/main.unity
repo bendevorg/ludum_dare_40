@@ -648,6 +648,92 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666165337}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &683726331 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1692913245337298, guid: 842771241221944888b8c8491c5d7446,
+    type: 2}
+  m_PrefabInternal: {fileID: 1430516888}
+--- !u!82 &683726341
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683726331}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243946305929156482, guid: 030ea94188fae9e429b1a1b7d0ade871,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &699545742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,10 +1280,16 @@ Prefab:
       propertyPath: dashSpeedMultiplier
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1903410242734074, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
+    - target: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
+        type: 2}
+      propertyPath: zonyas
+      value: 
+      objectReference: {fileID: 8300000, guid: aa2f4b916d4bc6141a02f9085f4793ae, type: 3}
+    - target: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
+        type: 2}
+      propertyPath: freeze
+      value: 
+      objectReference: {fileID: 8300000, guid: 56dde042e4a9b8b41979c2b0b6331ef7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
   m_IsPrefabParent: 0
@@ -1810,12 +1902,20 @@ Prefab:
     - target: {fileID: 20270691222131162, guid: 6ceeb0b60f0674e30a1a9e6be627a656,
         type: 2}
       propertyPath: orthographic size
+<<<<<<< HEAD
       value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: 114376050609044608, guid: 6ceeb0b60f0674e30a1a9e6be627a656,
         type: 2}
       propertyPath: pixelPerfect
       value: 0
+=======
+      value: 5.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114891426004436, guid: 6ceeb0b60f0674e30a1a9e6be627a656, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+>>>>>>> 971753307948bb14d7d30aa50143bf3bf50dd2b4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ceeb0b60f0674e30a1a9e6be627a656, type: 2}
