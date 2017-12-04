@@ -6,16 +6,26 @@ using UnityEngine;
 public class Player : LivingEntity {
 
 	Controller2D controller;
-	BoxCollider2D collider;
+
 
 	Vector2 input;
 	float velocityXSmoothing;
 	float velocityYSmoothing;
 
+	[Range(1, 2)]
+	public int player;
+	string horizontal = "Horizontal_Player";
+	string vertical = "Vertical_Player";
+	string driveOne = "Drive1_Player";
+	string driveTwo = "Drive2_Player";
+
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
-		collider = GetComponent<BoxCollider2D>();
+		horizontal += player.ToString();
+		vertical += player.ToString();
+		driveOne += player.ToString();
+		driveTwo += player.ToString();
 	}
 	
 	// Update is called once per frame
@@ -28,12 +38,12 @@ public class Player : LivingEntity {
 		}
 		
 		if (controller.playerInfo.inputEnabled){
-			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+			input = new Vector2 (Input.GetAxisRaw(horizontal), Input.GetAxisRaw(vertical));
 			input = input.normalized;
 			controller.playerInfo.input = input;
-			if (Input.GetButtonDown("Drive1_Player1")){
+			if (Input.GetButtonDown(driveOne)){
 				controller.UsePowerup(0);
-			} else if (Input.GetButtonDown("Drive2_Player1")){
+			} else if (Input.GetButtonDown(driveTwo)){
 				controller.UsePowerup(1);
 			}
 		}
