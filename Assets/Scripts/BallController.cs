@@ -50,7 +50,7 @@ public class BallController : MonoBehaviour {
 			// transform.rotation = Quaternion.Euler(0f, 0f, forward);
 			source.PlayOneShot(hitWall, hitVol);
 			float shakeDuration = 0.2f * (Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.y)) / ballMaxSpeed);
-			float shakeAmount = 0.2f * (Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.y)) / ballMaxSpeed);;
+			float shakeAmount = 0.1f * (Mathf.Max(Mathf.Abs(rb.velocity.x), Mathf.Abs(rb.velocity.y)) / ballMaxSpeed);;
 			CameraShaker.Shake(shakeDuration, shakeAmount);
 		} else if (other.collider.tag == "Player") {
 			other.collider.GetComponent<LivingEntity>().TakeDamage(999);

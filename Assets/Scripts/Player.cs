@@ -31,9 +31,9 @@ public class Player : LivingEntity {
 			input = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			input = input.normalized;
 			controller.playerInfo.input = input;
-			if (Input.GetKeyDown(KeyCode.Z)){
+			if (Input.GetButtonDown("Drive1_Player1")){
 				controller.UsePowerup(0);
-			} else if (Input.GetKeyDown(KeyCode.X)){
+			} else if (Input.GetButtonDown("Drive2_Player1")){
 				controller.UsePowerup(1);
 			}
 		}

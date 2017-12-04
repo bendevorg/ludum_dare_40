@@ -170,9 +170,7 @@ public class Controller2D : MonoBehaviour {
 		Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
 		freezeTimeRemaining = 0f;
 		foreach(Controller2D enemy in otherPlayers){
-			if (enemy == null){
-				otherPlayers.Remove(enemy);
-			} else {
+			if (enemy != null){
 				enemy.StopMovement();
 				enemy.ChangeColor(frozenColor);
 			}
@@ -184,9 +182,7 @@ public class Controller2D : MonoBehaviour {
 		}
 
 		foreach(Controller2D enemy in otherPlayers){
-			if (enemy == null){
-				otherPlayers.Remove(enemy);
-			} else {
+			if (enemy != null){
 				enemy.RecoverMovement();
 				enemy.ChangeColor(defaultColor);
 			}
