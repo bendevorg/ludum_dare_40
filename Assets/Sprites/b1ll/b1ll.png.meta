@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3d0958632f2694f5a9b1806a394fbe10
-timeCreated: 1512348305
+timeCreated: 1512430771
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,6 +64,15 @@ TextureImporter:
     21300114: b1ll 57
     21300116: b1ll 58
     21300118: b1ll 59
+    21300120: b1ll 60
+    21300122: b1ll 61
+    21300124: b1ll 62
+    21300126: b1ll 63
+    21300128: b1ll 64
+    21300130: b1ll 65
+    21300132: b1ll 66
+    21300134: b1ll 67
+    21300136: b1ll 68
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +126,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -244,8 +253,8 @@ TextureImporter:
       name: b1ll 8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 512
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -258,8 +267,8 @@ TextureImporter:
       name: b1ll 9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 384
+        x: 576
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -272,8 +281,8 @@ TextureImporter:
       name: b1ll 10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 640
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -286,8 +295,8 @@ TextureImporter:
       name: b1ll 11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
+        x: 704
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -300,8 +309,8 @@ TextureImporter:
       name: b1ll 12
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 768
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -314,8 +323,8 @@ TextureImporter:
       name: b1ll 13
       rect:
         serializedVersion: 2
-        x: 320
-        y: 384
+        x: 832
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -328,8 +337,8 @@ TextureImporter:
       name: b1ll 14
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 896
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -342,8 +351,8 @@ TextureImporter:
       name: b1ll 15
       rect:
         serializedVersion: 2
-        x: 448
-        y: 384
+        x: 960
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -357,7 +366,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -371,7 +380,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -385,7 +394,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -399,7 +408,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -413,7 +422,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -427,7 +436,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -441,7 +450,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -455,7 +464,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -468,8 +477,8 @@ TextureImporter:
       name: b1ll 24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 512
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -482,8 +491,8 @@ TextureImporter:
       name: b1ll 25
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
+        x: 576
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -496,8 +505,8 @@ TextureImporter:
       name: b1ll 26
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 640
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -510,8 +519,8 @@ TextureImporter:
       name: b1ll 27
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
+        x: 704
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -524,8 +533,8 @@ TextureImporter:
       name: b1ll 28
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 768
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -538,8 +547,8 @@ TextureImporter:
       name: b1ll 29
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
+        x: 832
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -552,8 +561,8 @@ TextureImporter:
       name: b1ll 30
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 896
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -566,8 +575,8 @@ TextureImporter:
       name: b1ll 31
       rect:
         serializedVersion: 2
-        x: 448
-        y: 256
+        x: 960
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -581,7 +590,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -595,7 +604,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -609,7 +618,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -623,7 +632,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -637,7 +646,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -651,7 +660,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -665,7 +674,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -679,7 +688,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -692,8 +701,8 @@ TextureImporter:
       name: b1ll 40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 512
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -706,8 +715,8 @@ TextureImporter:
       name: b1ll 41
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 576
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -720,8 +729,8 @@ TextureImporter:
       name: b1ll 42
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 640
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -734,8 +743,8 @@ TextureImporter:
       name: b1ll 43
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
+        x: 704
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -748,8 +757,8 @@ TextureImporter:
       name: b1ll 44
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 768
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -762,8 +771,8 @@ TextureImporter:
       name: b1ll 45
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
+        x: 832
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -776,8 +785,8 @@ TextureImporter:
       name: b1ll 46
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 896
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -790,8 +799,8 @@ TextureImporter:
       name: b1ll 47
       rect:
         serializedVersion: 2
-        x: 448
-        y: 128
+        x: 960
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -805,7 +814,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -819,7 +828,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -833,7 +842,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -847,7 +856,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -861,7 +870,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -875,7 +884,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -889,7 +898,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -903,7 +912,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -916,8 +925,8 @@ TextureImporter:
       name: b1ll 56
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 512
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -930,8 +939,8 @@ TextureImporter:
       name: b1ll 57
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 576
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -944,8 +953,8 @@ TextureImporter:
       name: b1ll 58
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 640
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -958,8 +967,134 @@ TextureImporter:
       name: b1ll 59
       rect:
         serializedVersion: 2
+        x: 704
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 61
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 62
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 66
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 67
+      rect:
+        serializedVersion: 2
         x: 192
-        y: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
         width: 64
         height: 64
       alignment: 7

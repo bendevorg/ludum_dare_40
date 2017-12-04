@@ -16,9 +16,9 @@ public class Controller2D : MonoBehaviour {
 	PlayerUI playerUI;
 	public AudioClip zonyas;
 	public AudioClip freeze;
-  public AudioClip stun;
-  public AudioClip pickup;
-  private AudioSource source;
+	public AudioClip stun;
+	public AudioClip pickup;
+	private AudioSource source;
 
 	SpriteRenderer spriteRenderer;
 
@@ -28,9 +28,10 @@ public class Controller2D : MonoBehaviour {
 	public Vector2 playerInput;
 	List<Controller2D> otherPlayers;
 
-	public enum Powerups {None = -1, Dash = 0, Zhonya = 1, Freeze = 2};
-	string[] powerupNames = new string[]{"None", "Dash", "Zhonya", "Freeze"};
-	public Powerups[] powerups = new Powerups[] {Powerups.None, Powerups.None};
+	public enum Powerups { None = -1, Dash = 0, Zhonya = 1, Freeze = 2 };
+
+	string[] powerupNames = new string[] { "None", "Dash", "Zhonya", "Freeze" };
+	public Powerups[] powerups = new Powerups[] { Powerups.None, Powerups.None };
 
 	public float dashSpeedMultiplier = 2.5f;
 	public float dashTime = .75f;
@@ -46,10 +47,10 @@ public class Controller2D : MonoBehaviour {
 	public float freezeTime = 3f;
 	float freezeTimeRemaining;
 
-	void Awake(){
+	void Awake() {
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
 		source = GetComponent<AudioSource>();
-    }
+	}
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
@@ -60,8 +61,8 @@ public class Controller2D : MonoBehaviour {
 
 		otherPlayers = new List<Controller2D>();
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-		foreach(GameObject player in players){
-			if (player.transform != this.transform){
+		foreach (GameObject player in players) {
+			if (player.transform != this.transform) {
 				otherPlayers.Add(player.GetComponent<Controller2D>());
 			}
 		}
@@ -81,12 +82,12 @@ public class Controller2D : MonoBehaviour {
 		} else {
 			animator.SetBool("isWalking", false);
 		}
-	}	
+	}
 
-	public void UsePowerup(int usedPowerup){
-		switch(powerups[usedPowerup]){
+	public void UsePowerup(int usedPowerup) {
+		switch (powerups[usedPowerup]) {
 			case Powerups.Dash:
-				if (Mathf.Abs(playerInfo.input.x) + Mathf.Abs(playerInfo.input.y) > 0){
+				if (Mathf.Abs(playerInfo.input.x) + Mathf.Abs(playerInfo.input.y) > 0) {
 					Dash();
 					playerUI.SetDriveText(usedPowerup, powerupNames[0]);
 					powerups[usedPowerup] = Powerups.None;
@@ -107,15 +108,15 @@ public class Controller2D : MonoBehaviour {
 		}
 	}
 
-	public void Dash(){
-		if (!playerInfo.onDash){
+	public void Dash() {
+		if (!playerInfo.onDash) {
 			playerInfo.onDash = true;
 			playerInfo.inputEnabled = false;
 			playerInfo.attack = true;
 			playerInfo.moveSpeed *= dashSpeedMultiplier;
 			dashTimeRemaining = 0f;
 			playerInfo.accelerationTime = 0f;
-		} else if (dashTimeRemaining < dashTime){
+		} else if (dashTimeRemaining < dashTime) {
 			dashTimeRemaining += Time.deltaTime;
 		} else {
 			playerInfo.onDash = false;
@@ -129,7 +130,7 @@ public class Controller2D : MonoBehaviour {
 	}
 
 	public void Zhonya() {
-		if (!playerInfo.onZhonya){
+		if (!playerInfo.onZhonya) {
 			playerInfo.onZhonya = true;
 			StopMovement();
 			source.PlayOneShot(zonyas, 1);
@@ -141,26 +142,28 @@ public class Controller2D : MonoBehaviour {
 			Color temp = spriteRenderer.color;
 			temp.a = 0.2f;
 			spriteRenderer.color = temp;
-		} else if (zhonyaTimeRemaining < zhonyaTime){
+		} else if (zhonyaTimeRemaining < zhonyaTime) {
 			zhonyaTimeRemaining += Time.deltaTime;
-		} else if (zhonyaDrawbackTimeRemaining < zhonyaDrawbackTime){
-				if (collider.isTrigger){
-					source.Stop();
-          source.PlayOneShot(stun, 1);
-					collider.isTrigger = false;
-					// Color
-					Color temp = spriteRenderer.color;
-					temp.a = 1f;
-					spriteRenderer.color = temp;
-				}
+		} else if (zhonyaDrawbackTimeRemaining < zhonyaDrawbackTime) {
+			if (collider.isTrigger) {
+				source.Stop();
+				source.PlayOneShot(stun, 1);
+				animator.SetBool("isStunned", true);
+				collider.isTrigger = false;
+				// Color
+				Color temp = spriteRenderer.color;
+				temp.a = 1f;
+				spriteRenderer.color = temp;
+			}
 			zhonyaDrawbackTimeRemaining += Time.deltaTime;
 		} else {
 			playerInfo.onZhonya = false;
+			animator.SetBool("isStunned", false);
 			RecoverMovement();
 		}
 	}
 
-	IEnumerator Freeze(){
+	IEnumerator Freeze() {
 		playerInfo.onFreeze = true;
 		userFreezeTimeRemaining = 0f;
 		StopMovement();
@@ -168,39 +171,39 @@ public class Controller2D : MonoBehaviour {
 		Color color = new Color(0f, 0f, 255f, 0.7f);
 		ChangeColor(color);
 
-		while (userFreezeTimeRemaining < userFreezeTime){
+		while (userFreezeTimeRemaining < userFreezeTime) {
 			userFreezeTimeRemaining += Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
 
 		playerInfo.onFreeze = false;
 		RecoverMovement();
-        source.PlayOneShot(freeze, 1);
-        Color defaultColor = new Color(255f, 255f, 255f, 1f);
+		source.PlayOneShot(freeze, 1);
+		Color defaultColor = new Color(255f, 255f, 255f, 1f);
 		ChangeColor(defaultColor);
 		Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
 		freezeTimeRemaining = 0f;
-		foreach(Controller2D enemy in otherPlayers){
-			if (enemy != null){
+		foreach (Controller2D enemy in otherPlayers) {
+			if (enemy != null) {
 				enemy.StopMovement();
 				enemy.ChangeColor(frozenColor);
 			}
 		}
 
-		while(freezeTimeRemaining < freezeTime){
+		while (freezeTimeRemaining < freezeTime) {
 			freezeTimeRemaining += Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
 
-		foreach(Controller2D enemy in otherPlayers){
-			if (enemy != null){
+		foreach (Controller2D enemy in otherPlayers) {
+			if (enemy != null) {
 				enemy.RecoverMovement();
 				enemy.ChangeColor(defaultColor);
 			}
 		}
 	}
 
-	public void StopMovement(){
+	public void StopMovement() {
 		playerInfo.inputEnabled = false;
 		playerInfo.moveSpeed = 0;
 		playerInfo.accelerationTime = 0;
@@ -208,28 +211,28 @@ public class Controller2D : MonoBehaviour {
 		playerInfo.velocity.y = 0;
 	}
 
-	public void ChangeColor(Color color){
+	public void ChangeColor(Color color) {
 		spriteRenderer.color = color;
 	}
 
-	public void RecoverMovement(){
+	public void RecoverMovement() {
 		playerInfo.inputEnabled = true;
 		playerInfo.moveSpeed = moveSpeed;
 		playerInfo.accelerationTime = accelerationTime;
 	}
 
-	void OnTriggerEnter2D(Collider2D collider){
-		if (collider.tag == "Powerup"){
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.tag == "Powerup") {
 			int newPowerup = collider.GetComponent<PowerUp>().GetPowerup();
 			//	TODO: Redo this to be more flexible
-			if (powerups[0] == Powerups.None){
-				powerups[0] = (Powerups)newPowerup;
+			if (powerups[0] == Powerups.None) {
+				powerups[0] = (Powerups) newPowerup;
 				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
-			} else if(powerups[1] == Powerups.None){
-				powerups[1] = (Powerups)newPowerup;
+			} else if (powerups[1] == Powerups.None) {
+				powerups[1] = (Powerups) newPowerup;
 				playerUI.SetDriveText(1, powerupNames[newPowerup + 1]);
 			} else {
-				powerups[0] = (Powerups)newPowerup;
+				powerups[0] = (Powerups) newPowerup;
 				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
 			}
 			collider.GetComponent<PowerUp>().Destroy();
@@ -237,18 +240,18 @@ public class Controller2D : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Enemy" && playerInfo.attack){
+		if (other.collider.tag == "Enemy" && playerInfo.attack) {
 			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
-		} else if (other.collider.tag == "Wall" && playerInfo.onDash){
+		} else if (other.collider.tag == "Wall" && playerInfo.onDash) {
 			transform.GetComponent<LivingEntity>().TakeDamage(99999);
 		}
 	}
 
 	void OnCollisionStay2D(Collision2D other) {
-		if (other.collider.tag == "Enemy" && playerInfo.attack){
+		if (other.collider.tag == "Enemy" && playerInfo.attack) {
 			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
 		} //else if (other.collider.tag == "Wall" && playerInfo.onDash){
-			//transform.GetComponent<LivingEntity>().TakeDamage(99999);
+		//transform.GetComponent<LivingEntity>().TakeDamage(99999);
 		//}
 	}
 

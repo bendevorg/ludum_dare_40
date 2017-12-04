@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d337092854b1447eebdf322c566fb91e
-timeCreated: 1512348293
+timeCreated: 1512430721
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,6 +64,15 @@ TextureImporter:
     21300114: b4e 57
     21300116: b4e 58
     21300118: b4e 59
+    21300120: b4e 60
+    21300122: b4e 61
+    21300124: b4e 62
+    21300126: b4e 63
+    21300128: b4e 64
+    21300130: b4e 65
+    21300132: b4e 66
+    21300134: b4e 67
+    21300136: b4e 68
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +126,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -253,8 +262,8 @@ TextureImporter:
       name: b4e 8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 512
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -267,8 +276,8 @@ TextureImporter:
       name: b4e 9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 384
+        x: 576
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -281,8 +290,8 @@ TextureImporter:
       name: b4e 10
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
+        x: 640
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -295,8 +304,8 @@ TextureImporter:
       name: b4e 11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
+        x: 704
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -309,8 +318,8 @@ TextureImporter:
       name: b4e 12
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 768
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -323,8 +332,8 @@ TextureImporter:
       name: b4e 13
       rect:
         serializedVersion: 2
-        x: 320
-        y: 384
+        x: 832
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -337,8 +346,8 @@ TextureImporter:
       name: b4e 14
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 896
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -351,8 +360,8 @@ TextureImporter:
       name: b4e 15
       rect:
         serializedVersion: 2
-        x: 448
-        y: 384
+        x: 960
+        y: 448
         width: 64
         height: 64
       alignment: 7
@@ -366,7 +375,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -380,7 +389,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -394,7 +403,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -408,7 +417,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -422,7 +431,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -436,7 +445,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -450,7 +459,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -464,7 +473,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 320
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -477,8 +486,8 @@ TextureImporter:
       name: b4e 24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 512
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -491,8 +500,8 @@ TextureImporter:
       name: b4e 25
       rect:
         serializedVersion: 2
-        x: 64
-        y: 256
+        x: 576
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -505,8 +514,8 @@ TextureImporter:
       name: b4e 26
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 640
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -519,8 +528,8 @@ TextureImporter:
       name: b4e 27
       rect:
         serializedVersion: 2
-        x: 192
-        y: 256
+        x: 704
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -533,8 +542,8 @@ TextureImporter:
       name: b4e 28
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 768
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -547,8 +556,8 @@ TextureImporter:
       name: b4e 29
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
+        x: 832
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -561,8 +570,8 @@ TextureImporter:
       name: b4e 30
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 896
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -575,8 +584,8 @@ TextureImporter:
       name: b4e 31
       rect:
         serializedVersion: 2
-        x: 448
-        y: 256
+        x: 960
+        y: 384
         width: 64
         height: 64
       alignment: 7
@@ -590,7 +599,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -604,7 +613,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -618,7 +627,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -632,7 +641,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -646,7 +655,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -660,7 +669,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -674,7 +683,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -688,7 +697,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 192
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -701,8 +710,8 @@ TextureImporter:
       name: b4e 40
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
+        x: 512
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -715,8 +724,8 @@ TextureImporter:
       name: b4e 41
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 576
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -729,8 +738,8 @@ TextureImporter:
       name: b4e 42
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 640
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -743,8 +752,8 @@ TextureImporter:
       name: b4e 43
       rect:
         serializedVersion: 2
-        x: 192
-        y: 128
+        x: 704
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -757,8 +766,8 @@ TextureImporter:
       name: b4e 44
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
+        x: 768
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -771,8 +780,8 @@ TextureImporter:
       name: b4e 45
       rect:
         serializedVersion: 2
-        x: 320
-        y: 128
+        x: 832
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -785,8 +794,8 @@ TextureImporter:
       name: b4e 46
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 896
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -799,8 +808,8 @@ TextureImporter:
       name: b4e 47
       rect:
         serializedVersion: 2
-        x: 448
-        y: 128
+        x: 960
+        y: 320
         width: 64
         height: 64
       alignment: 7
@@ -814,7 +823,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -828,7 +837,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -842,7 +851,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -856,7 +865,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -870,7 +879,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -884,7 +893,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -898,7 +907,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -912,7 +921,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 64
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -925,8 +934,8 @@ TextureImporter:
       name: b4e 56
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 512
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -939,8 +948,8 @@ TextureImporter:
       name: b4e 57
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 576
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -953,8 +962,8 @@ TextureImporter:
       name: b4e 58
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 640
+        y: 256
         width: 64
         height: 64
       alignment: 7
@@ -967,8 +976,134 @@ TextureImporter:
       name: b4e 59
       rect:
         serializedVersion: 2
+        x: 704
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 61
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 62
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 256
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 66
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 67
+      rect:
+        serializedVersion: 2
         x: 192
-        y: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b4e 68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
         width: 64
         height: 64
       alignment: 7
