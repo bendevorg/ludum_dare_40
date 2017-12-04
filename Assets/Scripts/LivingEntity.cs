@@ -10,8 +10,6 @@ public class LivingEntity : MonoBehaviour {
 
 	public event System.Action OnDeath;
 
-	public event Action<LivingEntity> OnEntityDeath;
-
 	public void TakeDamage(int damage){
 		health -= damage;
 

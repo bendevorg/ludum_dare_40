@@ -14,11 +14,11 @@ public class Controller2D : MonoBehaviour {
 	[HideInInspector]
 	public PlayerInfo playerInfo;
 	PlayerUI playerUI;
-    public AudioClip zonyas;
-    public AudioClip freeze;
-    private AudioSource source;
+	public AudioClip zonyas;
+	public AudioClip freeze;
+	private AudioSource source;
 
-    SpriteRenderer spriteRenderer;
+	SpriteRenderer spriteRenderer;
 
 	public float moveSpeed = 20f;
 	float accelerationTime = .1f;
@@ -46,7 +46,7 @@ public class Controller2D : MonoBehaviour {
 
 	void Awake(){
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
-        source = GetComponent<AudioSource>();
+		source = GetComponent<AudioSource>();
     }
 
 	void Start() {
@@ -130,8 +130,8 @@ public class Controller2D : MonoBehaviour {
 		if (!playerInfo.onZhonya){
 			playerInfo.onZhonya = true;
 			StopMovement();
-            source.PlayOneShot(zonyas, 1);
-            collider.isTrigger = true;
+			source.PlayOneShot(zonyas, 1);
+			collider.isTrigger = true;
 			zhonyaTimeRemaining = 0f;
 			zhonyaDrawbackTimeRemaining = 0f;
 
@@ -143,8 +143,8 @@ public class Controller2D : MonoBehaviour {
 			zhonyaTimeRemaining += Time.deltaTime;
 		} else if (zhonyaDrawbackTimeRemaining < zhonyaDrawbackTime){
 				if (collider.isTrigger){
-                    source.Stop();
-                    collider.isTrigger = false;
+					source.Stop();
+					collider.isTrigger = false;
 					// Color
 					Color temp = spriteRenderer.color;
 					temp.a = 1f;
@@ -161,7 +161,7 @@ public class Controller2D : MonoBehaviour {
 		playerInfo.onFreeze = true;
 		userFreezeTimeRemaining = 0f;
 		StopMovement();
-        source.PlayOneShot(freeze, 1);
+		source.PlayOneShot(freeze, 1);
 		Color color = new Color(0f, 0f, 255f, 0.7f);
 		ChangeColor(color);
 
@@ -180,7 +180,7 @@ public class Controller2D : MonoBehaviour {
 		foreach(Controller2D enemy in otherPlayers){
 			if (enemy != null){
 				enemy.StopMovement();
-                enemy.ChangeColor(frozenColor);
+				enemy.ChangeColor(frozenColor);
 			}
 		}
 
