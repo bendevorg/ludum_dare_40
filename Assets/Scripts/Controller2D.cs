@@ -16,7 +16,9 @@ public class Controller2D : MonoBehaviour {
 	PlayerUI playerUI;
 	public AudioClip zonyas;
 	public AudioClip freeze;
-	private AudioSource source;
+  public AudioClip stun;
+  public AudioClip pickup;
+  private AudioSource source;
 
 	SpriteRenderer spriteRenderer;
 
@@ -144,6 +146,7 @@ public class Controller2D : MonoBehaviour {
 		} else if (zhonyaDrawbackTimeRemaining < zhonyaDrawbackTime){
 				if (collider.isTrigger){
 					source.Stop();
+          source.PlayOneShot(stun, 1);
 					collider.isTrigger = false;
 					// Color
 					Color temp = spriteRenderer.color;
