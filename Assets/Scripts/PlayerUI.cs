@@ -8,6 +8,7 @@ public class PlayerUI : MonoBehaviour {
   public Text[] driveTexts;
 
   public void SetDriveText(int driveId, string driveText){
-    driveTexts[driveId].text = "Drive " + driveId.ToString() + " - " + driveText;
+    if (driveText.Length > driveId)
+      driveTexts[driveId].text = "Drive " + driveId.ToString() + " - " + driveText;
   }
 }

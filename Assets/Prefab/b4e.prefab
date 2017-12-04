@@ -357,9 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28e83cb26db84e3889d8af7e0ccdfea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  driveTexts:
-  - {fileID: 0}
-  - {fileID: 0}
+  driveTexts: []
 --- !u!212 &212837595218589060
 SpriteRenderer:
   m_ObjectHideFlags: 1
