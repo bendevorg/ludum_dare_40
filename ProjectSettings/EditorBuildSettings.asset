@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1e35353f7854141e595d5720408f849a
   - enabled: 1
-    path: Assets/Scenes/main.unity
+    path: Assets/Scenes/PvM.unity
     guid: a0b53a1642577422095397a9033be9bb
+  - enabled: 1
+    path: Assets/Scenes/PvP.unity
+    guid: 98a91552305914ac480596d6cd5f67b0
