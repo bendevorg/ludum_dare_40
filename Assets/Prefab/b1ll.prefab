@@ -219,7 +219,7 @@ MonoBehaviour:
   playerInput: {x: 0, y: 0}
   powerups: ffffffffffffffff
   dashSpeedMultiplier: 2
-  dashTime: 0.75
+  dashTime: 0.5
   zhonyaTime: 2
   zhonyaDrawbackTime: 2
   userFreezeTime: 3

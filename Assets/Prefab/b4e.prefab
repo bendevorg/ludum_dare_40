@@ -27,8 +27,9 @@ GameObject:
   - component: {fileID: 114017821435270056}
   - component: {fileID: 95203907795355004}
   - component: {fileID: 114625967380589680}
-  - component: {fileID: 82218536026847002}
   - component: {fileID: 114545223752108972}
+  - component: {fileID: 82250342215414458}
+  - component: {fileID: 114255104945669106}
   m_Layer: 8
   m_Name: b4e
   m_TagString: Player
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692913245337298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58, y: 5.45, z: -1}
+  m_LocalPosition: {x: 10.98, y: -0.34, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4965879911805038}
@@ -139,7 +140,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.6}
   m_EdgeRadius: 0
---- !u!82 &82218536026847002
+--- !u!82 &82250342215414458
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -147,7 +148,8 @@ AudioSource:
   m_GameObject: {fileID: 1692913245337298}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243946305929156482, guid: 030ea94188fae9e429b1a1b7d0ade871,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -266,6 +268,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+--- !u!114 &114255104945669106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692913245337298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  traversableTagsCompatibility:
+    tagsChange: -1
+    tagsSet: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &114545223752108972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +341,7 @@ MonoBehaviour:
   playerInput: {x: 0, y: 0}
   powerups: ffffffffffffffff
   dashSpeedMultiplier: 2
-  dashTime: 0.75
+  dashTime: 0.5
   zhonyaTime: 2
   zhonyaDrawbackTime: 2
   userFreezeTime: 3

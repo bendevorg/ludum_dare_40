@@ -206,7 +206,7 @@ MonoBehaviour:
   playerInput: {x: 0, y: 0}
   powerups: ffffffffffffffff
   dashSpeedMultiplier: 2
-  dashTime: 0.75
+  dashTime: 0.5
   zhonyaTime: 2
   zhonyaDrawbackTime: 2
   userFreezeTime: 3
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  player: 1
 --- !u!114 &114845197380116404
 MonoBehaviour:
   m_ObjectHideFlags: 1

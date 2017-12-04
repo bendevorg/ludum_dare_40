@@ -13,6 +13,8 @@ public class Spawner : MonoBehaviour {
 	float mapOffsetX;
 	float mapOffsetY;
 
+	public LayerMask wallMask;
+
 	public float minTimeToSpawn = 6f;
 	public float maxTimeToSpawn = 15f;
 	float nextTimeToSpawn;
@@ -38,6 +40,12 @@ public class Spawner : MonoBehaviour {
 			nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn) + Time.time;
 			float spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
 			float spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
+
+			while(Physics.Raycast(new Vector3(spawnX, spawnY, -10f), Vector3.forward, 10f, wallMask)){
+				Debug.Log("Hit");
+				spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
+				spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
+			}
 			Vector3 spawnLocation = new Vector3(spawnX, spawnY, -2f);
 			instantiatedPowerup =  Instantiate(powerUp, spawnLocation, Quaternion.identity);
 			instantiatedPowerup.OnPickup += ClearPowerup;
