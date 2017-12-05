@@ -83,7 +83,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.16911763, g: 0.024870243, b: 0.024870243, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -94,7 +94,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.9
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -214,8 +214,8 @@ MonoBehaviour:
   maxCameraHalfHeight: 2
   targetDimension: 1
   targetCameraHalfWidth: 2
-  targetCameraHalfHeight: 9.9
-  pixelPerfect: 0
+  targetCameraHalfHeight: 10
+  pixelPerfect: 1
   retroSnap: 0
   assetsPixelsPerUnit: 32
   showHUD: 0
