@@ -337,6 +337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zonyas: {fileID: 8300000, guid: aa2f4b916d4bc6141a02f9085f4793ae, type: 3}
   freeze: {fileID: 8300000, guid: 56dde042e4a9b8b41979c2b0b6331ef7, type: 3}
+  stun: {fileID: 8300000, guid: 20fdee1cec2cd5543bc0f037afbf3a44, type: 3}
+  pickup: {fileID: 8300000, guid: 53a7ee6d07c02a348bd7da334e8c5631, type: 3}
   moveSpeed: 6
   playerInput: {x: 0, y: 0}
   powerups: ffffffffffffffff

@@ -224,8 +224,9 @@ public class Controller2D : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "Powerup") {
 			int newPowerup = collider.GetComponent<PowerUp>().GetPowerup();
-			//	TODO: Redo this to be more flexible
-			if (powerups[0] == Powerups.None) {
+      source.PlayOneShot(pickup, 1);
+      //	TODO: Redo this to be more flexible
+      if (powerups[0] == Powerups.None) {
 				powerups[0] = (Powerups) newPowerup;
 				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
 			} else if (powerups[1] == Powerups.None) {
