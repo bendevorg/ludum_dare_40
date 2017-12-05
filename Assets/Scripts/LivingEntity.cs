@@ -21,6 +21,8 @@ public class LivingEntity : MonoBehaviour {
 		if (OnDeath != null){
 			OnDeath();
 		};
-	
+		GetComponent<BoxCollider2D>().enabled = false;
+		GetComponent<Rigidbody2D>().isKinematic = true;
+		GetComponent<Controller2D>().playerInfo.inputEnabled = false;
 	}
 }

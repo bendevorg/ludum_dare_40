@@ -175,7 +175,6 @@ MonoBehaviour:
   ballMinSpeed: 3
   ballMaxSpeed: 15
   hitWall: {fileID: 8300000, guid: 6080ba3e7d73e6245ba5c2f1b4dc9d93, type: 3}
-  death: {fileID: 8300000, guid: b59a4067b6ba8fb40bffbf9525594a4d, type: 3}
 --- !u!212 &212273464016342258
 SpriteRenderer:
   m_ObjectHideFlags: 1

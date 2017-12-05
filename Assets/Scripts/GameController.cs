@@ -48,14 +48,13 @@ public class GameController : MonoBehaviour {
 	void PlayerDeath(){
 		players.RemoveAt(0);
 		if (players.Count <= 1){
-			Time.timeScale = 0;
 			GameOver();
 		}
 	}
 
 	void GameOver(){
 		gameOverUI.SetActive(true);
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 	}
 
 	void PauseGame(){
