@@ -18,12 +18,12 @@ public class Spawner : MonoBehaviour {
 	public float minTimeToSpawn = 6f;
 	public float maxTimeToSpawn = 15f;
 	float nextTimeToSpawn;
-	float timeToSpawnReamining;
+	float timeToSpawnReamining = 0f;
 
 	// Use this for initialization
 	void Start () {
 		mapSize = map.bounds;
-		nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn) + Time.time;
+		nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn);
 		mapOffsetX = Mathf.Abs(mapSize.min.x - mapSize.max.x)*0.2f;
 		mapOffsetY = Mathf.Abs(mapSize.min.y - mapSize.max.y)*0.2f;
 	}
@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour {
 	void SpawnPowerup(){
 		if (timeToSpawnReamining > nextTimeToSpawn){
 			// Spawn powerup
-			nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn) + Time.time;
+			nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn);
 			float spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
 			float spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
 
@@ -48,6 +48,7 @@ public class Spawner : MonoBehaviour {
 			Vector3 spawnLocation = new Vector3(spawnX, spawnY, -2f);
 			instantiatedPowerup =  Instantiate(powerUp, spawnLocation, Quaternion.identity);
 			instantiatedPowerup.OnPickup += ClearPowerup;
+			timeToSpawnReamining = 0f;
 		} else {
 			timeToSpawnReamining += Time.deltaTime;
 		}
