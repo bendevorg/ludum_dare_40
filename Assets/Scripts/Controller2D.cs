@@ -18,7 +18,8 @@ public class Controller2D : MonoBehaviour {
 	public AudioClip freeze;
 	public AudioClip stun;
 	public AudioClip pickup;
-	private AudioSource source;
+  public AudioClip dash;
+  private AudioSource source;
 
 	SpriteRenderer spriteRenderer;
 
@@ -110,7 +111,8 @@ public class Controller2D : MonoBehaviour {
 
 	public void Dash() {
 		if (!playerInfo.onDash) {
-			playerInfo.onDash = true;
+      source.PlayOneShot(dash, 1);
+      playerInfo.onDash = true;
 			playerInfo.inputEnabled = false;
 			playerInfo.attack = true;
 			playerInfo.moveSpeed *= dashSpeedMultiplier;
