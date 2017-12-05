@@ -22,7 +22,9 @@ public class LivingEntity : MonoBehaviour {
 			OnDeath();
 		};
 		GetComponent<BoxCollider2D>().enabled = false;
-		GetComponent<Rigidbody2D>().isKinematic = true;
-		GetComponent<Controller2D>().playerInfo.inputEnabled = false;
+		Rigidbody2D rb = GetComponent<Rigidbody2D>();
+		rb.velocity = Vector2.zero;
+		rb.bodyType = RigidbodyType2D.Static;
+		GetComponent<Controller2D>().playerInfo.dead = true;
 	}
 }

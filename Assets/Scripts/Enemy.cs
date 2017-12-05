@@ -28,14 +28,17 @@ public class Enemy : LivingEntity {
 	
 	// Update is called once per frame
 	void Update () {
-		enemyBehavior.NextMovement(ref input);
+		if (!controller.playerInfo.dead)
+			enemyBehavior.NextMovement(ref input);
 	}
 	
 	void FixedUpdate(){
-		float targetVelocityX = input.x * controller.playerInfo.moveSpeed;
-		float targetVelocityY = input.y * controller.playerInfo.moveSpeed;
-		controller.playerInfo.velocity.x = Mathf.SmoothDamp(controller.playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, controller.playerInfo.accelerationTime);
-		controller.playerInfo.velocity.y = Mathf.SmoothDamp(controller.playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, controller.playerInfo.accelerationTime);
-		controller.Move(controller.playerInfo.velocity * Time.deltaTime, input);
+		if (!controller.playerInfo.dead){
+			float targetVelocityX = input.x * controller.playerInfo.moveSpeed;
+			float targetVelocityY = input.y * controller.playerInfo.moveSpeed;
+			controller.playerInfo.velocity.x = Mathf.SmoothDamp(controller.playerInfo.velocity.x, targetVelocityX, ref velocityXSmoothing, controller.playerInfo.accelerationTime);
+			controller.playerInfo.velocity.y = Mathf.SmoothDamp(controller.playerInfo.velocity.y, targetVelocityY, ref velocityYSmoothing, controller.playerInfo.accelerationTime);
+			controller.Move(controller.playerInfo.velocity * Time.deltaTime, input);
+		}
 	}
 }

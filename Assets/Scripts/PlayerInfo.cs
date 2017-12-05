@@ -6,6 +6,7 @@ public struct PlayerInfo {
 	public bool onFreeze;
 	public bool inputEnabled;
 	public bool attack;
+	public bool dead;
 	public float moveSpeed;
 	public float accelerationTime;
 	public Vector3 velocity;
@@ -17,6 +18,7 @@ public struct PlayerInfo {
 		onFreeze = false;
 		inputEnabled = true;
 		attack = false;
+		dead = false;
 		moveSpeed = _moveSpeed;
 		accelerationTime = _accelerationTime;
 		velocity = _velocity;
