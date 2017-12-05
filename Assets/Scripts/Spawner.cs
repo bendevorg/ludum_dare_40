@@ -40,8 +40,7 @@ public class Spawner : MonoBehaviour {
 			nextTimeToSpawn = Random.Range(minTimeToSpawn, maxTimeToSpawn);
 			float spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
 			float spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
-
-			while(Physics.Raycast(new Vector3(spawnX, spawnY, -10f), Vector3.forward, 10f, wallMask)){
+			while(Physics2D.Raycast(new Vector2(spawnX, spawnY), Vector2.right, .5f, wallMask)){
 				spawnX = Random.Range(mapSize.min.x + mapOffsetX, mapSize.max.x - mapOffsetX);
 				spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
 			}
