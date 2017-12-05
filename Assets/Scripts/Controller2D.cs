@@ -67,6 +67,8 @@ public class Controller2D : MonoBehaviour {
 				otherPlayers.Add(player.GetComponent<Controller2D>());
 			}
 		}
+
+		GetComponent<LivingEntity>().OnDeath += TriggerDeathAnimation;
 	}
 
 	public void Move(Vector2 moveAmount, Vector2 input) {
@@ -221,6 +223,10 @@ public class Controller2D : MonoBehaviour {
 		playerInfo.inputEnabled = true;
 		playerInfo.moveSpeed = moveSpeed;
 		playerInfo.accelerationTime = accelerationTime;
+	}
+
+	void TriggerDeathAnimation() {
+		animator.SetBool("isDead", true);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
