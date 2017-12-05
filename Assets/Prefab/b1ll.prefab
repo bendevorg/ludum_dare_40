@@ -218,6 +218,7 @@ MonoBehaviour:
   stun: {fileID: 8300000, guid: 20fdee1cec2cd5543bc0f037afbf3a44, type: 3}
   pickup: {fileID: 8300000, guid: 53a7ee6d07c02a348bd7da334e8c5631, type: 3}
   dash: {fileID: 8300000, guid: 7b068c7285662a243a87ca807fe79bee, type: 3}
+  death: {fileID: 8300000, guid: b59a4067b6ba8fb40bffbf9525594a4d, type: 3}
   moveSpeed: 6
   playerInput: {x: 0, y: 0}
   powerups: ffffffffffffffff

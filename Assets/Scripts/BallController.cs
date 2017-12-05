@@ -10,7 +10,6 @@ public class BallController : MonoBehaviour {
 	public float ballMinSpeed = 1.5f;
 	public float ballMaxSpeed = 25f;
 	public AudioClip hitWall;
-	public AudioClip death;
 
 	private AudioSource source;
 	private float lowPitchRange = .50F;
@@ -55,7 +54,6 @@ public class BallController : MonoBehaviour {
 		} else if (other.collider.tag == "Player") {
 			other.collider.GetComponent<LivingEntity>().TakeDamage(999);
 			CameraShaker.Shake(0.3f, 0.3f);
-				source.PlayOneShot(death, 1.5f);
 			}
 	}
 }

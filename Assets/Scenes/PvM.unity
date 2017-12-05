@@ -407,11 +407,6 @@ Prefab:
       propertyPath: driveTexts.Array.data[1]
       value: 
       objectReference: {fileID: 294262032}
-    - target: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
-        type: 2}
-      propertyPath: dash
-      value: 
-      objectReference: {fileID: 8300000, guid: 7b068c7285662a243a87ca807fe79bee, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
   m_IsPrefabParent: 0
@@ -1085,11 +1080,6 @@ Prefab:
       propertyPath: map
       value: 
       objectReference: {fileID: 1830246990}
-    - target: {fileID: 114834135198686108, guid: 73124e74bbcdf45e2adbfb033f85278c,
-        type: 2}
-      propertyPath: wallMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 73124e74bbcdf45e2adbfb033f85278c, type: 2}
   m_IsPrefabParent: 0

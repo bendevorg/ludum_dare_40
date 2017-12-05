@@ -19,6 +19,7 @@ public class Controller2D : MonoBehaviour {
 	public AudioClip stun;
 	public AudioClip pickup;
   public AudioClip dash;
+	public AudioClip death;
   private AudioSource source;
 
 	SpriteRenderer spriteRenderer;
@@ -67,8 +68,9 @@ public class Controller2D : MonoBehaviour {
 				otherPlayers.Add(player.GetComponent<Controller2D>());
 			}
 		}
-
-		GetComponent<LivingEntity>().OnDeath += TriggerDeathAnimation;
+		LivingEntity livingEntity = GetComponent<LivingEntity>();
+		livingEntity.OnDeath += TriggerDeathAnimation;
+		livingEntity.OnDeath += PlayDeathSFX;
 	}
 
 	public void Move(Vector2 moveAmount, Vector2 input) {
@@ -229,9 +231,14 @@ public class Controller2D : MonoBehaviour {
 		animator.SetBool("isDead", true);
 	}
 
+	void PlayDeathSFX(){
+		source.PlayOneShot(death, 1.5f);
+	}
+
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "Powerup") {
-			int newPowerup = collider.GetComponent<PowerUp>().GetPowerup();
+			PowerUp pickedPowerup = GetComponent<PowerUp>();
+			int newPowerup = pickedPowerup.GetPowerup();
       source.PlayOneShot(pickup, 1);
       //	TODO: Redo this to be more flexible
       if (powerups[0] == Powerups.None) {
@@ -244,7 +251,7 @@ public class Controller2D : MonoBehaviour {
 				powerups[0] = (Powerups) newPowerup;
 				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
 			}
-			collider.GetComponent<PowerUp>().Destroy();
+			pickedPowerup.Destroy();
 		}
 	}
 
