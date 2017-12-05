@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3d0958632f2694f5a9b1806a394fbe10
-timeCreated: 1512430771
+timeCreated: 1512435638
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -73,6 +73,12 @@ TextureImporter:
     21300132: b1ll 66
     21300134: b1ll 67
     21300136: b1ll 68
+    21300138: b1ll 69
+    21300140: b1ll 70
+    21300142: b1ll 71
+    21300144: b1ll 72
+    21300146: b1ll 73
+    21300148: b1ll 74
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1094,6 +1100,90 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 69
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 70
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 71
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 72
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 73
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: b1ll 74
+      rect:
+        serializedVersion: 2
+        x: 640
         y: 192
         width: 64
         height: 64

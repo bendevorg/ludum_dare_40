@@ -407,6 +407,11 @@ Prefab:
       propertyPath: driveTexts.Array.data[1]
       value: 
       objectReference: {fileID: 294262032}
+    - target: {fileID: 114246095076293664, guid: 33d0a4e9a5cc54563a3ee836b6d958d9,
+        type: 2}
+      propertyPath: dash
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b068c7285662a243a87ca807fe79bee, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d0a4e9a5cc54563a3ee836b6d958d9, type: 2}
   m_IsPrefabParent: 0
