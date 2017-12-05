@@ -237,7 +237,7 @@ public class Controller2D : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.tag == "Powerup") {
-			PowerUp pickedPowerup = GetComponent<PowerUp>();
+			PowerUp pickedPowerup = collider.GetComponent<PowerUp>();
 			int newPowerup = pickedPowerup.GetPowerup();
       source.PlayOneShot(pickup, 1);
       //	TODO: Redo this to be more flexible
