@@ -2,25 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour {
+public class Powerup : MonoBehaviour {
 
-	public event System.Action OnPickup;
-
-	public int amountOfPowerups = 3;
-	int powerUp;
-
-	void Start(){
-		powerUp = Random.Range(0, amountOfPowerups);
+	// Use this for initialization
+	void Start () {
+		
 	}
-
-	public int GetPowerup(){
-		return powerUp;
-	}
-
-	public void Destroy(){
-		if (OnPickup != null){
-			OnPickup();
-		}
-		Destroy(this.gameObject);
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
 }

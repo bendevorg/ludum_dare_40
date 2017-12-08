@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 95406045255815240}
   - component: {fileID: 114845197380116404}
   - component: {fileID: 82620516932154368}
+  - component: {fileID: 114268191516142622}
   m_Layer: 8
   m_Name: b0b
   m_TagString: Player
@@ -215,6 +216,21 @@ MonoBehaviour:
   zhonyaDrawbackTime: 2
   userFreezeTime: 3
   freezeTime: 3
+--- !u!114 &114268191516142622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903410242734074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee22936587170c40a5b456f7acd1f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zhonyaTime: 2
+  zhonyaDrawbackTime: 2
+  zhonyas: {fileID: 8300000, guid: aa2f4b916d4bc6141a02f9085f4793ae, type: 3}
+  stun: {fileID: 8300000, guid: 20fdee1cec2cd5543bc0f037afbf3a44, type: 3}
 --- !u!114 &114798479451797224
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,7 +7,6 @@ public class Player : LivingEntity {
 
 	Controller2D controller;
 
-
 	Vector2 input;
 	float velocityXSmoothing;
 	float velocityYSmoothing;
