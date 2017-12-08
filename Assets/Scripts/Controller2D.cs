@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(PlayerUI))]
 public class Controller2D : MonoBehaviour {
 
 	Rigidbody2D rb;
@@ -15,17 +14,15 @@ public class Controller2D : MonoBehaviour {
 	[HideInInspector]
 	public PlayerInfo playerInfo;
 
-	PlayerUI playerUI;
-
-	public AudioClip death;
-  private AudioSource source;
-
 	SpriteRenderer spriteRenderer;
 
 	public float moveSpeed = 20f;
 	float accelerationTime = .1f;
 
 	public Vector2 playerInput;
+
+	private AudioSource source;
+	public AudioClip death;
 
 	void Awake() {
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
@@ -37,7 +34,6 @@ public class Controller2D : MonoBehaviour {
 		collider = GetComponent<BoxCollider2D>();
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		playerUI = GetComponent<PlayerUI>();
 
 		LivingEntity livingEntity = GetComponent<LivingEntity>();
 		livingEntity.OnDeath += TriggerDeathAnimation;
@@ -87,19 +83,9 @@ public class Controller2D : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if (other.collider.tag == "Enemy" && playerInfo.attack) {
-			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
-		} else if (other.collider.tag == "Wall" && playerInfo.onDash) {
+		if (other.collider.tag == "Wall" && playerInfo.onDash) {
 			transform.GetComponent<LivingEntity>().TakeDamage(99999);
 		}
-	}
-
-	void OnCollisionStay2D(Collision2D other) {
-		if (other.collider.tag == "Enemy" && playerInfo.attack) {
-			other.collider.GetComponent<LivingEntity>().TakeDamage(5);
-		} //else if (other.collider.tag == "Wall" && playerInfo.onDash){
-		//transform.GetComponent<LivingEntity>().TakeDamage(99999);
-		//}
 	}
 
 }
