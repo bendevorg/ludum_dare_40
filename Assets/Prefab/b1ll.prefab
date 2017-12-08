@@ -27,6 +27,10 @@ GameObject:
   - component: {fileID: 95176087554989912}
   - component: {fileID: 114920527843579584}
   - component: {fileID: 82572667907950426}
+  - component: {fileID: 114243494181949460}
+  - component: {fileID: 114041913332030204}
+  - component: {fileID: 114498921112725774}
+  - component: {fileID: 114181688718837558}
   m_Layer: 8
   m_Name: b1ll
   m_TagString: Player
@@ -189,6 +193,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114041913332030204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693175215577676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cea1fdb94fa0a4a8e19cfb67c47312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userFreezeTime: 3
+  othersFreezeTime: 3
+  freeze: {fileID: 8300000, guid: 56dde042e4a9b8b41979c2b0b6331ef7, type: 3}
 --- !u!114 &114168135423907762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,6 +220,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   player: 2
+--- !u!114 &114181688718837558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693175215577676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8069db77d76af242b96c999760189eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeedMultiplier: 2.5
+  dashTime: 0.75
+  dash: {fileID: 8300000, guid: 7b068c7285662a243a87ca807fe79bee, type: 3}
+--- !u!114 &114243494181949460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693175215577676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb34bcf971176cf4eaf479551c20afd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: ffffffffffffffff
+  pickup: {fileID: 8300000, guid: 53a7ee6d07c02a348bd7da334e8c5631, type: 3}
+--- !u!114 &114498921112725774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693175215577676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee22936587170c40a5b456f7acd1f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zhonyaTime: 2
+  zhonyaDrawbackTime: 2
+  zhonyas: {fileID: 8300000, guid: aa2f4b916d4bc6141a02f9085f4793ae, type: 3}
+  stun: {fileID: 8300000, guid: 20fdee1cec2cd5543bc0f037afbf3a44, type: 3}
 --- !u!114 &114771862402521258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,21 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3d7b96a770d4a069f0fa21e2dae3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zonyas: {fileID: 8300000, guid: aa2f4b916d4bc6141a02f9085f4793ae, type: 3}
-  freeze: {fileID: 8300000, guid: 56dde042e4a9b8b41979c2b0b6331ef7, type: 3}
-  stun: {fileID: 8300000, guid: 20fdee1cec2cd5543bc0f037afbf3a44, type: 3}
-  pickup: {fileID: 8300000, guid: 53a7ee6d07c02a348bd7da334e8c5631, type: 3}
-  dash: {fileID: 8300000, guid: 7b068c7285662a243a87ca807fe79bee, type: 3}
-  death: {fileID: 8300000, guid: b59a4067b6ba8fb40bffbf9525594a4d, type: 3}
   moveSpeed: 6
   playerInput: {x: 0, y: 0}
-  powerups: ffffffffffffffff
-  dashSpeedMultiplier: 2
-  dashTime: 0.5
-  zhonyaTime: 2
-  zhonyaDrawbackTime: 2
-  userFreezeTime: 3
-  freezeTime: 3
+  death: {fileID: 8300000, guid: b59a4067b6ba8fb40bffbf9525594a4d, type: 3}
 --- !u!114 &114920527843579584
 MonoBehaviour:
   m_ObjectHideFlags: 1
