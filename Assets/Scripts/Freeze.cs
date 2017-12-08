@@ -48,6 +48,7 @@ public class Freeze : MonoBehaviour {
 		}
 
 		DeactivateFreezeOnItself();
+		ActivateFreezeOnOthers();
 		float othersFreezeTimeRemaining = 0f;
 
 		while (othersFreezeTimeRemaining < othersFreezeTime) {
