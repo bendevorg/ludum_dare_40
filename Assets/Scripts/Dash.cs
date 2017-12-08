@@ -25,7 +25,7 @@ public class Dash : MonoBehaviour {
 	}
 
 	IEnumerator StartDash() {
-		if (controller.playerInput.x != 0 && controller.playerInput.y != 0){
+		if (controller.playerInput.x != 0 || controller.playerInput.y != 0){
 			ActivateDash();
 			float dashTimeRemaining = 0f;
 
