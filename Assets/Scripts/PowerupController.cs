@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerUI))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Zhonya))]
+[RequireComponent(typeof(Freeze))]
 public class PowerupController : MonoBehaviour {
 	
 	PlayerUI playerUI;
@@ -15,19 +16,14 @@ public class PowerupController : MonoBehaviour {
 	public Powerups[] powerups = new Powerups[] { Powerups.None, Powerups.None };
 
 	Zhonya zhonya;
+	Freeze freeze;
 	
 	public float dashSpeedMultiplier = 2.5f;
 	public float dashTime = .75f;
 	float dashTimeRemaining;
 
-	public float userFreezeTime = 3f;
-	float userFreezeTimeRemaining;
-	public float freezeTime = 3f;
-	float freezeTimeRemaining;
-
 	private AudioSource source;
 	public AudioClip pickup;
-	public AudioClip freeze;
   public AudioClip dash;
 
 	// Use this for initialization
@@ -35,6 +31,7 @@ public class PowerupController : MonoBehaviour {
 		playerUI = GetComponent<PlayerUI>();
 		source = GetComponent<AudioSource>();
 		zhonya = GetComponent<Zhonya>();
+		freeze = GetComponent<Freeze>();
 	}
 
 	public void UsePowerup(int usedPowerup) {
@@ -52,7 +49,7 @@ public class PowerupController : MonoBehaviour {
 				powerups[usedPowerup] = Powerups.None;
 				break;
 			case Powerups.Freeze:
-				StartCoroutine("Freeze");
+				freeze.Use();
 				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
 				powerups[usedPowerup] = Powerups.None;
 				break;
@@ -80,46 +77,6 @@ public class PowerupController : MonoBehaviour {
 			playerInfo.accelerationTime = accelerationTime;
 			playerInfo.velocity.x = 0;
 			playerInfo.velocity.y = 0;
-		}
-	}
-
-	IEnumerator Freeze() {
-		playerInfo.onFreeze = true;
-		userFreezeTimeRemaining = 0f;
-		StopMovement();
-		source.PlayOneShot(freeze, 1);
-		Color color = new Color(0f, 0f, 255f, 0.7f);
-		ChangeColor(color);
-
-		while (userFreezeTimeRemaining < userFreezeTime) {
-			userFreezeTimeRemaining += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		playerInfo.onFreeze = false;
-		RecoverMovement();
-		source.PlayOneShot(freeze, 1);
-		Color defaultColor = new Color(255f, 255f, 255f, 1f);
-		ChangeColor(defaultColor);
-		Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
-		freezeTimeRemaining = 0f;
-		foreach (Controller2D enemy in otherPlayers) {
-			if (enemy != null) {
-				enemy.StopMovement();
-				enemy.ChangeColor(frozenColor);
-			}
-		}
-
-		while (freezeTimeRemaining < freezeTime) {
-			freezeTimeRemaining += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		foreach (Controller2D enemy in otherPlayers) {
-			if (enemy != null) {
-				enemy.RecoverMovement();
-				enemy.ChangeColor(defaultColor);
-			}
 		}
 	}
 

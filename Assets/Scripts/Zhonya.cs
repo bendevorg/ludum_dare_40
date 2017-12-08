@@ -20,6 +20,7 @@ public class Zhonya : MonoBehaviour {
 	public AudioClip stun;
 
 	Color zhonyaColor = new Color(255f, 255f, 255f, 0.2f);
+	Color defaultColor = new Color(255f, 255f, 255f, 1f);
 
 	void Start(){
 		controller = GetComponent<Controller2D>();
@@ -43,6 +44,7 @@ public class Zhonya : MonoBehaviour {
 	void DeactivateZhonya(){
 		controller.playerInfo.onZhonya = false;
 		collider.isTrigger = false;
+		controller.ChangeColor(defaultColor);
 		source.Stop();
 		source.PlayOneShot(stun, 1);
 		animator.SetBool("isStunned", true);

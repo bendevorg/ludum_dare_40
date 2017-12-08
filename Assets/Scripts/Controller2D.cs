@@ -26,7 +26,6 @@ public class Controller2D : MonoBehaviour {
 	float accelerationTime = .1f;
 
 	public Vector2 playerInput;
-	List<Controller2D> otherPlayers;
 
 	void Awake() {
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
@@ -40,13 +39,6 @@ public class Controller2D : MonoBehaviour {
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		playerUI = GetComponent<PlayerUI>();
 
-		otherPlayers = new List<Controller2D>();
-		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-		foreach (GameObject player in players) {
-			if (player.transform != this.transform) {
-				otherPlayers.Add(player.GetComponent<Controller2D>());
-			}
-		}
 		LivingEntity livingEntity = GetComponent<LivingEntity>();
 		livingEntity.OnDeath += TriggerDeathAnimation;
 		livingEntity.OnDeath += PlayDeathSFX;
