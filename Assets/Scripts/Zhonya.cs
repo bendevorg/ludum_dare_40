@@ -9,7 +9,7 @@ using UnityEngine;
 public class Zhonya : MonoBehaviour {
 
 	Controller2D controller;
-	BoxCollider2D collider;
+	BoxCollider2D userCollider;
 	Animator animator;
 
 	public float zhonyaTime = 2f;
@@ -24,7 +24,7 @@ public class Zhonya : MonoBehaviour {
 
 	void Start(){
 		controller = GetComponent<Controller2D>();
-		collider = GetComponent<BoxCollider2D>();
+		userCollider = GetComponent<BoxCollider2D>();
 		animator = GetComponent<Animator>();
 		source = GetComponent<AudioSource>();
 	}
@@ -33,30 +33,7 @@ public class Zhonya : MonoBehaviour {
 		StartCoroutine("StartZhonya");
 	}
 
-	void ActivateZhonya(){
-		controller.playerInfo.onZhonya = true;
-		controller.StopMovement();
-		controller.ChangeColor(zhonyaColor);
-		collider.isTrigger = true;
-		source.PlayOneShot(zhonyas, 1);
-	}
-
-	void DeactivateZhonya(){
-		controller.playerInfo.onZhonya = false;
-		collider.isTrigger = false;
-		controller.ChangeColor(defaultColor);
-		source.Stop();
-		source.PlayOneShot(stun, 1);
-		animator.SetBool("isStunned", true);
-	}
-
-	void EndDrawback(){
-		controller.playerInfo.onZhonya = false;
-		animator.SetBool("isStunned", false);
-		controller.RecoverMovement();
-	}
-
-	public IEnumerator StartZhonya() {
+	IEnumerator StartZhonya() {
 
 		ActivateZhonya();
 		float zhonyaTimeRemaining = 0f;
@@ -75,6 +52,29 @@ public class Zhonya : MonoBehaviour {
 		}
 
 		EndDrawback();
+	}
+
+	void ActivateZhonya(){
+		controller.playerInfo.onZhonya = true;
+		controller.StopMovement();
+		controller.ChangeColor(zhonyaColor);
+		userCollider.isTrigger = true;
+		source.PlayOneShot(zhonyas, 1);
+	}
+
+	void DeactivateZhonya(){
+		controller.playerInfo.onZhonya = false;
+		userCollider.isTrigger = false;
+		controller.ChangeColor(defaultColor);
+		source.Stop();
+		source.PlayOneShot(stun, 1);
+		animator.SetBool("isStunned", true);
+	}
+
+	void EndDrawback(){
+		controller.playerInfo.onZhonya = false;
+		animator.SetBool("isStunned", false);
+		controller.RecoverMovement();
 	}
 
 }

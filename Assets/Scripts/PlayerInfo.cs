@@ -5,7 +5,6 @@ public struct PlayerInfo {
 	public bool onZhonya;
 	public bool onFreeze;
 	public bool inputEnabled;
-	public bool attack;
 	public bool dead;
 	public float moveSpeed;
 	public float accelerationTime;
@@ -17,7 +16,6 @@ public struct PlayerInfo {
 		onZhonya = false;
 		onFreeze = false;
 		inputEnabled = true;
-		attack = false;
 		dead = false;
 		moveSpeed = _moveSpeed;
 		accelerationTime = _accelerationTime;

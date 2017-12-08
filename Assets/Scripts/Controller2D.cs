@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Animator))]
 public class Controller2D : MonoBehaviour {
 
 	Rigidbody2D rb;
-	BoxCollider2D collider;
 	Animator animator;
 
 	[HideInInspector]
@@ -31,7 +29,6 @@ public class Controller2D : MonoBehaviour {
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
-		collider = GetComponent<BoxCollider2D>();
 		animator = GetComponent<Animator>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -56,16 +53,21 @@ public class Controller2D : MonoBehaviour {
 		}
 	}
 
+	public void ChangeColor(Color color) {
+		spriteRenderer.color = color;
+	}
+
+	public void BoostMovement(float _moveSpeed, float _accelerationTime){
+		playerInfo.moveSpeed = _moveSpeed;
+		playerInfo.accelerationTime = _accelerationTime;
+	}
+
 	public void StopMovement() {
 		playerInfo.inputEnabled = false;
 		playerInfo.moveSpeed = 0;
 		playerInfo.accelerationTime = 0;
 		playerInfo.velocity.x = 0;
 		playerInfo.velocity.y = 0;
-	}
-
-	public void ChangeColor(Color color) {
-		spriteRenderer.color = color;
 	}
 
 	public void RecoverMovement() {

@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Zhonya))]
 [RequireComponent(typeof(Freeze))]
+[RequireComponent(typeof(Dash))]
 public class PowerupController : MonoBehaviour {
 	
 	PlayerUI playerUI;
@@ -17,14 +18,10 @@ public class PowerupController : MonoBehaviour {
 
 	Zhonya zhonya;
 	Freeze freeze;
-	
-	public float dashSpeedMultiplier = 2.5f;
-	public float dashTime = .75f;
-	float dashTimeRemaining;
+	Dash dash;
 
 	private AudioSource source;
 	public AudioClip pickup;
-  public AudioClip dash;
 
 	// Use this for initialization
 	void Start () {
@@ -32,16 +29,15 @@ public class PowerupController : MonoBehaviour {
 		source = GetComponent<AudioSource>();
 		zhonya = GetComponent<Zhonya>();
 		freeze = GetComponent<Freeze>();
+		dash = GetComponent<Dash>();
 	}
 
 	public void UsePowerup(int usedPowerup) {
 		switch (powerups[usedPowerup]) {
 			case Powerups.Dash:
-				if (Mathf.Abs(playerInfo.input.x) + Mathf.Abs(playerInfo.input.y) > 0) {
-					Dash();
-					playerUI.SetDriveText(usedPowerup, powerupNames[0]);
-					powerups[usedPowerup] = Powerups.None;
-				}
+				dash.Use();
+				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
+				powerups[usedPowerup] = Powerups.None;
 				break;
 			case Powerups.Zhonya:
 				zhonya.Use();
@@ -55,28 +51,6 @@ public class PowerupController : MonoBehaviour {
 				break;
 			default:
 				break;
-		}
-	}
-	
-	public void Dash() {
-		if (!playerInfo.onDash) {
-      source.PlayOneShot(dash, 1);
-      playerInfo.onDash = true;
-			playerInfo.inputEnabled = false;
-			playerInfo.attack = true;
-			playerInfo.moveSpeed *= dashSpeedMultiplier;
-			dashTimeRemaining = 0f;
-			playerInfo.accelerationTime = 0f;
-		} else if (dashTimeRemaining < dashTime) {
-			dashTimeRemaining += Time.deltaTime;
-		} else {
-			playerInfo.onDash = false;
-			playerInfo.inputEnabled = true;
-			playerInfo.attack = false;
-			playerInfo.moveSpeed /= dashSpeedMultiplier;
-			playerInfo.accelerationTime = accelerationTime;
-			playerInfo.velocity.x = 0;
-			playerInfo.velocity.y = 0;
 		}
 	}
 
@@ -99,5 +73,4 @@ public class PowerupController : MonoBehaviour {
 			pickedPowerup.Destroy();
 		}
 	}
-
 }

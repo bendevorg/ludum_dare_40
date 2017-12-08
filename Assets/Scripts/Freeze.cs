@@ -33,8 +33,29 @@ public class Freeze : MonoBehaviour {
 		}
 	}
 		
-	void Use(){
+	public void Use(){
 		StartCoroutine("StartFreeze");
+	}
+
+	IEnumerator StartFreeze() {
+
+		ActivateFreezeOnItself();
+		float userFreezeTimeRemaining = 0f;
+
+		while (userFreezeTimeRemaining < userFreezeTime) {
+			userFreezeTimeRemaining += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+
+		DeactivateFreezeOnItself();
+		float othersFreezeTimeRemaining = 0f;
+
+		while (othersFreezeTimeRemaining < othersFreezeTime) {
+			othersFreezeTimeRemaining += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+
+		DeactivateFreezeOnOthers();
 	}
 
 	void ActivateFreezeOnItself(){
@@ -67,26 +88,5 @@ public class Freeze : MonoBehaviour {
 				enemy.ChangeColor(defaultColor);
 			}
 		}
-	}
-	
-	IEnumerator StartFreeze() {
-
-		ActivateFreezeOnItself();
-		float userFreezeTimeRemaining = 0f;
-
-		while (userFreezeTimeRemaining < userFreezeTime) {
-			userFreezeTimeRemaining += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		DeactivateFreezeOnItself();
-		float othersFreezeTimeRemaining = 0f;
-
-		while (othersFreezeTimeRemaining < othersFreezeTime) {
-			othersFreezeTimeRemaining += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		DeactivateFreezeOnOthers();
 	}
 }
