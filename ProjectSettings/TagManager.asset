@@ -7,8 +7,8 @@ TagManager:
   - Enemy
   - Wall
   - Ball
-  - Powerup
   - Ground
+  - Pickup
   layers:
   - Default
   - TransparentFX

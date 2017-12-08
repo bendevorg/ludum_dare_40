@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
+[RequireComponent(typeof(PowerupController))]
 public class Player : LivingEntity {
 
 	Controller2D controller;
+	PowerupController powerupController;
 
 	Vector2 input;
 	float velocityXSmoothing;
@@ -21,6 +23,7 @@ public class Player : LivingEntity {
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<Controller2D>();
+		powerupController = GetComponent<PowerupController>();
 		horizontal += player.ToString();
 		vertical += player.ToString();
 		driveOne += player.ToString();
@@ -31,20 +34,15 @@ public class Player : LivingEntity {
 	void Update () {
 
 		if (!controller.playerInfo.dead){
-			if (controller.playerInfo.onDash){
-				controller.Dash();	
-			} else if(controller.playerInfo.onZhonya){
-				controller.Zhonya();
-			}
 			
 			if (controller.playerInfo.inputEnabled){
 				input = new Vector2 (Input.GetAxisRaw(horizontal), Input.GetAxisRaw(vertical));
 				input = input.normalized;
 				controller.playerInfo.input = input;
 				if (Input.GetButtonDown(driveOne)){
-					controller.UsePowerup(0);
+					powerupController.UsePowerup(0);
 				} else if (Input.GetButtonDown(driveTwo)){
-					controller.UsePowerup(1);
+					powerupController.UsePowerup(1);
 				}
 			}
 		}

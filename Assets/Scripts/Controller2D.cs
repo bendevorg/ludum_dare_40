@@ -94,26 +94,6 @@ public class Controller2D : MonoBehaviour {
 		source.PlayOneShot(death, 1.5f);
 	}
 
-	void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.tag == "Powerup") {
-			PowerUp pickedPowerup = collider.GetComponent<PowerUp>();
-			int newPowerup = pickedPowerup.GetPowerup();
-      source.PlayOneShot(pickup, 1);
-      //	TODO: Redo this to be more flexible
-      if (powerups[0] == Powerups.None) {
-				powerups[0] = (Powerups) newPowerup;
-				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
-			} else if (powerups[1] == Powerups.None) {
-				powerups[1] = (Powerups) newPowerup;
-				playerUI.SetDriveText(1, powerupNames[newPowerup + 1]);
-			} else {
-				powerups[0] = (Powerups) newPowerup;
-				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
-			}
-			pickedPowerup.Destroy();
-		}
-	}
-
 	void OnCollisionEnter2D(Collision2D other) {
 		if (other.collider.tag == "Enemy" && playerInfo.attack) {
 			other.collider.GetComponent<LivingEntity>().TakeDamage(5);

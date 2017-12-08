@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
-	public PowerUp powerUp;
+	public Pickup pickup;
 	[HideInInspector]
-	public PowerUp instantiatedPowerup = null;
+	public Pickup instantiatedPickup = null;
 
 	public Collider2D map;
 	Bounds mapSize;
@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (instantiatedPowerup == null)
+		if (instantiatedPickup == null)
 			SpawnPowerup();
 	}
 
@@ -45,8 +45,8 @@ public class Spawner : MonoBehaviour {
 				spawnY = Random.Range(mapSize.min.y + mapOffsetY, mapSize.max.y - mapOffsetY);
 			}
 			Vector3 spawnLocation = new Vector3(spawnX, spawnY, -2f);
-			instantiatedPowerup =  Instantiate(powerUp, spawnLocation, Quaternion.identity);
-			instantiatedPowerup.OnPickup += ClearPowerup;
+			instantiatedPickup =  Instantiate(pickup, spawnLocation, Quaternion.identity);
+			instantiatedPickup.OnPickup += ClearPowerup;
 			timeToSpawnReamining = 0f;
 		} else {
 			timeToSpawnReamining += Time.deltaTime;
@@ -54,7 +54,7 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void ClearPowerup(){
-		instantiatedPowerup = null;
+		instantiatedPickup = null;
 	}
 
 }

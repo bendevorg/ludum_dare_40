@@ -28,6 +28,10 @@ public class Zhonya : MonoBehaviour {
 		source = GetComponent<AudioSource>();
 	}
 
+	public void Use(){
+		StartCoroutine("StartZhonya");
+	}
+
 	void ActivateZhonya(){
 		controller.playerInfo.onZhonya = true;
 		controller.StopMovement();

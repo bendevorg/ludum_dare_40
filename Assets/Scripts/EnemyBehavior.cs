@@ -30,6 +30,8 @@ public class EnemyBehavior : MonoBehaviour {
 	// The waypoint we are currently moving towards
 	private int currentWaypoint = 0;
 
+	PowerupController powerupController;
+
 	void Start(){
 		controller = GetComponent<Controller2D>();
 		ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody2D>();
@@ -39,13 +41,6 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public void NextMovement(ref Vector2 input){
 
-		// Wait for dash to end
-		if (controller.playerInfo.onDash){
-			controller.Dash();
-		} else if (controller.playerInfo.onZhonya){
-			controller.Zhonya();
-		}
-
 		if(controller.playerInfo.inputEnabled){
 			Vector2 direction = Vector2.zero;
 			if (dangerZone){
@@ -54,17 +49,17 @@ public class EnemyBehavior : MonoBehaviour {
 
 				if(hit){
 					if (!controller.playerInfo.onDash) {
-						for (int i = 0; i < controller.powerups.Length; i++){
-							if (controller.powerups[i] == Controller2D.Powerups.Dash){
-								controller.UsePowerup(i);
+						for (int i = 0; i < powerupController.powerups.Length; i++){
+							if (powerupController.powerups[i] == PowerupController.Powerups.Dash){
+								powerupController.UsePowerup(i);
 								break;
 							}
 						}
 					}
 					if (!controller.playerInfo.onZhonya) {
-						for (int i = 0; i < controller.powerups.Length; i++){
-							if (controller.powerups[i] == Controller2D.Powerups.Zhonya){
-								controller.UsePowerup(i);
+						for (int i = 0; i < powerupController.powerups.Length; i++){
+							if (powerupController.powerups[i] == PowerupController.Powerups.Zhonya){
+								powerupController.UsePowerup(i);
 								break;
 							}
 						}
@@ -73,7 +68,7 @@ public class EnemyBehavior : MonoBehaviour {
 					dangerZone = false;
 				}
 			}
-			if (!dangerZone && spawner.instantiatedPowerup != null && timeToCatchPickupRemaining < timeToCatchPickup){
+			if (!dangerZone && spawner.instantiatedPickup != null && timeToCatchPickupRemaining < timeToCatchPickup){
 				timeToCatchPickupRemaining += Time.deltaTime;
 				if (path != null){
 					if (currentWaypoint < path.vectorPath.Count){
@@ -86,7 +81,7 @@ public class EnemyBehavior : MonoBehaviour {
 						path = null;
 					}
 				} else{
-					seeker.StartPath(transform.position, spawner.instantiatedPowerup.transform.position, OnPathComplete);
+					seeker.StartPath(transform.position, spawner.instantiatedPickup.transform.position, OnPathComplete);
 				}
 				//	Calculate path to powerup
 				//Vector2 powerupPosition = spawner.instantiatedPowerup.transform.position;
@@ -94,15 +89,15 @@ public class EnemyBehavior : MonoBehaviour {
 				//direction = new Vector2(powerupPosition.x - transform.position.x, powerupPosition.y - transform.position.y);
 			} else {
 
-				for (int i = 0; i < controller.powerups.Length; i++){
-					if (controller.powerups[i] == Controller2D.Powerups.Freeze){
+				for (int i = 0; i < powerupController.powerups.Length; i++){
+					if (powerupController.powerups[i] == PowerupController.Powerups.Freeze){
 						if (Random.Range((int)1, (int)100000) < 10)
-							controller.UsePowerup(i);
+							powerupController.UsePowerup(i);
 					}
 				}
 
 				//	Reset try to catch pickup
-				if (spawner.instantiatedPowerup == null){
+				if (spawner.instantiatedPickup == null){
 					timeToCatchPickupRemaining = 0f;
 				}
 				direction = ball.velocity.Rotate(90f);

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerUI))]
-public class Powerup : MonoBehaviour {
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Zhonya))]
+public class PowerupController : MonoBehaviour {
 	
 	PlayerUI playerUI;
 
@@ -11,6 +13,8 @@ public class Powerup : MonoBehaviour {
 
 	string[] powerupNames = new string[] { "None", "Dash", "Zhonya", "Freeze" };
 	public Powerups[] powerups = new Powerups[] { Powerups.None, Powerups.None };
+
+	Zhonya zhonya;
 	
 	public float dashSpeedMultiplier = 2.5f;
 	public float dashTime = .75f;
@@ -21,13 +25,16 @@ public class Powerup : MonoBehaviour {
 	public float freezeTime = 3f;
 	float freezeTimeRemaining;
 
-	public AudioClip freeze;
+	private AudioSource source;
 	public AudioClip pickup;
+	public AudioClip freeze;
   public AudioClip dash;
 
 	// Use this for initialization
 	void Start () {
 		playerUI = GetComponent<PlayerUI>();
+		source = GetComponent<AudioSource>();
+		zhonya = GetComponent<Zhonya>();
 	}
 
 	public void UsePowerup(int usedPowerup) {
@@ -40,7 +47,7 @@ public class Powerup : MonoBehaviour {
 				}
 				break;
 			case Powerups.Zhonya:
-				StartCoroutine("StartZhonya");
+				zhonya.Use();
 				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
 				powerups[usedPowerup] = Powerups.None;
 				break;
@@ -75,7 +82,6 @@ public class Powerup : MonoBehaviour {
 			playerInfo.velocity.y = 0;
 		}
 	}
-
 
 	IEnumerator Freeze() {
 		playerInfo.onFreeze = true;
@@ -114,6 +120,26 @@ public class Powerup : MonoBehaviour {
 				enemy.RecoverMovement();
 				enemy.ChangeColor(defaultColor);
 			}
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.tag == "Pickup") {
+			Pickup pickedPowerup = collider.GetComponent<Pickup>();
+			int newPowerup = pickedPowerup.GetPowerup();
+      source.PlayOneShot(pickup, 1);
+      //	TODO: Redo this to be more flexible
+      if (powerups[0] == Powerups.None) {
+				powerups[0] = (Powerups) newPowerup;
+				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
+			} else if (powerups[1] == Powerups.None) {
+				powerups[1] = (Powerups) newPowerup;
+				playerUI.SetDriveText(1, powerupNames[newPowerup + 1]);
+			} else {
+				powerups[0] = (Powerups) newPowerup;
+				playerUI.SetDriveText(0, powerupNames[newPowerup + 1]);
+			}
+			pickedPowerup.Destroy();
 		}
 	}
 
