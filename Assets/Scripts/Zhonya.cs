@@ -37,15 +37,12 @@ public class Zhonya : MonoBehaviour {
 		controller.StopMovement();
 		controller.ChangeColor(zhonyaColor);
 		collider.isTrigger = true;
-
-		//	Play source
 		source.PlayOneShot(zhonyas, 1);
 	}
 
 	void DeactivateZhonya(){
 		controller.playerInfo.onZhonya = false;
 		collider.isTrigger = false;
-
 		source.Stop();
 		source.PlayOneShot(stun, 1);
 		animator.SetBool("isStunned", true);
