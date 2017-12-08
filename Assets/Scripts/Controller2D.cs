@@ -11,14 +11,12 @@ public class Controller2D : MonoBehaviour {
 	Rigidbody2D rb;
 	BoxCollider2D collider;
 	Animator animator;
+
 	[HideInInspector]
 	public PlayerInfo playerInfo;
+
 	PlayerUI playerUI;
-	public AudioClip zonyas;
-	public AudioClip freeze;
-	public AudioClip stun;
-	public AudioClip pickup;
-  public AudioClip dash;
+
 	public AudioClip death;
   private AudioSource source;
 
@@ -29,25 +27,6 @@ public class Controller2D : MonoBehaviour {
 
 	public Vector2 playerInput;
 	List<Controller2D> otherPlayers;
-
-	public enum Powerups { None = -1, Dash = 0, Zhonya = 1, Freeze = 2 };
-
-	string[] powerupNames = new string[] { "None", "Dash", "Zhonya", "Freeze" };
-	public Powerups[] powerups = new Powerups[] { Powerups.None, Powerups.None };
-
-	public float dashSpeedMultiplier = 2.5f;
-	public float dashTime = .75f;
-	float dashTimeRemaining;
-
-	public float zhonyaTime = 2f;
-	float zhonyaTimeRemaining;
-	public float zhonyaDrawbackTime = 2f;
-	float zhonyaDrawbackTimeRemaining;
-
-	public float userFreezeTime = 3f;
-	float userFreezeTimeRemaining;
-	public float freezeTime = 3f;
-	float freezeTimeRemaining;
 
 	void Awake() {
 		playerInfo = new PlayerInfo(moveSpeed, accelerationTime, Vector3.zero);
@@ -86,126 +65,6 @@ public class Controller2D : MonoBehaviour {
 			animator.SetFloat("lastInputY", input.y);
 		} else {
 			animator.SetBool("isWalking", false);
-		}
-	}
-
-	public void UsePowerup(int usedPowerup) {
-		switch (powerups[usedPowerup]) {
-			case Powerups.Dash:
-				if (Mathf.Abs(playerInfo.input.x) + Mathf.Abs(playerInfo.input.y) > 0) {
-					Dash();
-					playerUI.SetDriveText(usedPowerup, powerupNames[0]);
-					powerups[usedPowerup] = Powerups.None;
-				}
-				break;
-			case Powerups.Zhonya:
-				Zhonya();
-				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
-				powerups[usedPowerup] = Powerups.None;
-				break;
-			case Powerups.Freeze:
-				StartCoroutine("Freeze");
-				playerUI.SetDriveText(usedPowerup, powerupNames[0]);
-				powerups[usedPowerup] = Powerups.None;
-				break;
-			default:
-				break;
-		}
-	}
-
-	public void Dash() {
-		if (!playerInfo.onDash) {
-      source.PlayOneShot(dash, 1);
-      playerInfo.onDash = true;
-			playerInfo.inputEnabled = false;
-			playerInfo.attack = true;
-			playerInfo.moveSpeed *= dashSpeedMultiplier;
-			dashTimeRemaining = 0f;
-			playerInfo.accelerationTime = 0f;
-		} else if (dashTimeRemaining < dashTime) {
-			dashTimeRemaining += Time.deltaTime;
-		} else {
-			playerInfo.onDash = false;
-			playerInfo.inputEnabled = true;
-			playerInfo.attack = false;
-			playerInfo.moveSpeed /= dashSpeedMultiplier;
-			playerInfo.accelerationTime = accelerationTime;
-			playerInfo.velocity.x = 0;
-			playerInfo.velocity.y = 0;
-		}
-	}
-
-	public void Zhonya() {
-		if (!playerInfo.onZhonya) {
-			playerInfo.onZhonya = true;
-			StopMovement();
-			source.PlayOneShot(zonyas, 1);
-			collider.isTrigger = true;
-			zhonyaTimeRemaining = 0f;
-			zhonyaDrawbackTimeRemaining = 0f;
-
-			// Color
-			Color temp = spriteRenderer.color;
-			temp.a = 0.2f;
-			spriteRenderer.color = temp;
-		} else if (zhonyaTimeRemaining < zhonyaTime) {
-			zhonyaTimeRemaining += Time.deltaTime;
-		} else if (zhonyaDrawbackTimeRemaining < zhonyaDrawbackTime) {
-			if (collider.isTrigger) {
-				source.Stop();
-				source.PlayOneShot(stun, 1);
-				animator.SetBool("isStunned", true);
-				collider.isTrigger = false;
-				// Color
-				Color temp = spriteRenderer.color;
-				temp.a = 1f;
-				spriteRenderer.color = temp;
-			}
-			zhonyaDrawbackTimeRemaining += Time.deltaTime;
-		} else {
-			playerInfo.onZhonya = false;
-			animator.SetBool("isStunned", false);
-			RecoverMovement();
-		}
-	}
-
-	IEnumerator Freeze() {
-		playerInfo.onFreeze = true;
-		userFreezeTimeRemaining = 0f;
-		StopMovement();
-		source.PlayOneShot(freeze, 1);
-		Color color = new Color(0f, 0f, 255f, 0.7f);
-		ChangeColor(color);
-
-		while (userFreezeTimeRemaining < userFreezeTime) {
-			userFreezeTimeRemaining += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		playerInfo.onFreeze = false;
-		RecoverMovement();
-		source.PlayOneShot(freeze, 1);
-		Color defaultColor = new Color(255f, 255f, 255f, 1f);
-		ChangeColor(defaultColor);
-		Color frozenColor = new Color(0f, 0f, 255f, 0.7f);
-		freezeTimeRemaining = 0f;
-		foreach (Controller2D enemy in otherPlayers) {
-			if (enemy != null) {
-				enemy.StopMovement();
-				enemy.ChangeColor(frozenColor);
-			}
-		}
-
-		while (freezeTimeRemaining < freezeTime) {
-			freezeTimeRemaining += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		foreach (Controller2D enemy in otherPlayers) {
-			if (enemy != null) {
-				enemy.RecoverMovement();
-				enemy.ChangeColor(defaultColor);
-			}
 		}
 	}
 

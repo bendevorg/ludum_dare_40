@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 82250342215414458}
   - component: {fileID: 114255104945669106}
   - component: {fileID: 114375415509274100}
+  - component: {fileID: 114122859909988484}
   m_Layer: 8
   m_Name: b4e
   m_TagString: Player
@@ -257,6 +258,17 @@ MonoBehaviour:
   map: {fileID: 0}
   spawner: {fileID: 0}
   nextWaypointDistance: 0.3
+--- !u!114 &114122859909988484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692913245337298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb34bcf971176cf4eaf479551c20afd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114191071241262760
 MonoBehaviour:
   m_ObjectHideFlags: 1
