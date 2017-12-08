@@ -34,6 +34,7 @@ public class EnemyBehavior : MonoBehaviour {
 
 	void Start(){
 		controller = GetComponent<Controller2D>();
+		powerupController = GetComponent<PowerupController>();
 		ball = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody2D>();
 		raycastOrigins = new RaycastOrigins();
 		seeker = GetComponent<Seeker>();

@@ -14,6 +14,7 @@ public class PowerupController : MonoBehaviour {
 	public enum Powerups { None = -1, Dash = 0, Zhonya = 1, Freeze = 2 };
 
 	string[] powerupNames = new string[] { "None", "Dash", "Zhonya", "Freeze" };
+	[HideInInspector]
 	public Powerups[] powerups = new Powerups[] { Powerups.None, Powerups.None };
 
 	Zhonya zhonya;

@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ad1aafa635c4904b2b4c7d073cb507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp: {fileID: 114947913902877202, guid: ada750844aaf947108ff319a347a131f, type: 2}
-  instantiatedPowerup: {fileID: 0}
+  pickup: {fileID: 114947913902877202, guid: ada750844aaf947108ff319a347a131f, type: 2}
+  instantiatedPickup: {fileID: 0}
   map: {fileID: 0}
   wallMask:
     serializedVersion: 2

@@ -17,6 +17,7 @@ public class Controller2D : MonoBehaviour {
 	public float moveSpeed = 20f;
 	float accelerationTime = .1f;
 
+	[HideInInspector]
 	public Vector2 playerInput;
 
 	private AudioSource source;
